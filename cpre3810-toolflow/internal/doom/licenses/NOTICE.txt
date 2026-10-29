@@ -1,0 +1,19 @@
+Doom HDL student distribution
+
+GHDL 6.0.0: Copyright Tristan Gingold and contributors; GNU GPL v2.
+Verilator 5.052: Copyright Wilson Snyder and contributors; dual LGPL v3 /
+Artistic License 2.0, with individual runtime/header notices retained.
+Doom engine / doomgeneric: Copyright id Software and contributors; GNU GPL v2.
+Newlib guest C/math library: notices in COPYING.NEWLIB and source headers.
+GCC libgcc guest runtime: GCC Runtime Library Exception; see upstream GCC sources.
+The GNU GPL engine license does not cover the Doom artwork or WAD data.
+assets/doom1.wad is the user-supplied DOOM1.WAD from doom1.wad.zip;
+original Doom game data is copyright id Software and subject to its own terms.
+No ownership of or new license to the original game data is asserted here.
+The launcher, adapter, host platform, and packaging additions are licensed
+under GNU GPL version 2 only (SPDX: GPL-2.0-only). See the package-root LICENSE.txt.
+Copyright (c) 2026 Doom HDL contributors.
+Third-party components retain their own licenses and copyright notices.
+For Verilator runtime code combined with our GPLv2-only host additions, the
+Artistic License 2.0 option is selected; both upstream license texts remain.
+The source archives contain the corresponding launcher/adapter/host sources.
