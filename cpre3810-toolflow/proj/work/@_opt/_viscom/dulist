@@ -1,0 +1,9 @@
+1 5 xorg2 8 dataflow 59 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/work 1 65 0 0 7 0
+1 5 andg2 8 dataflow 59 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/work 1 65 0 0 7 0
+1 4 org2 8 dataflow 59 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/work 1 65 0 0 7 0
+1 9 fulladder 10 structural 59 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/work 1 65 0 0 125 0
+1 7 adder_n 10 structural 59 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/work 1 65 4096 0 4110 0
+1 4 dffg 5 mixed 59 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/work 1 65 0 0 27 0
+1 8 dffg_set 5 mixed 59 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/work 1 65 0 0 27 0
+1 11 fetch_logic 3 rtl 59 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/work 1 65 1024 0 1199 0
+1 14 tb_fetch_logic 8 behavior 59 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/work 1 65 1024 0 1371 0

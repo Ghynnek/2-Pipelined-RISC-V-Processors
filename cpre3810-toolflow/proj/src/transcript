@@ -1,0 +1,243 @@
+# //  Questa Sim-64
+# //  Version 2026.2 linux_x86_64 May 18 2026
+# //
+# // Unpublished work. Copyright 2026 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+cd /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src
+vlib work
+vcom -reportprogress 300 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/32to1mux.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:39:59 on Nov 11,2026
+# vcom -reportprogress 300 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/32to1mux.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mux32to1
+# -- Compiling architecture dataflow of mux32to1
+# vcom: End time: 19:39:59 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/alu.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:39:59 on Nov 11,2026
+# vcom -reportprogress 300 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/alu.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity alu_full_adder
+# -- Compiling architecture gate_level of alu_full_adder
+# -- Compiling entity alu_add_sub_32
+# -- Compiling architecture structural of alu_add_sub_32
+# -- Compiling entity alu_slt_unit
+# -- Compiling architecture structural of alu_slt_unit
+# -- Compiling entity alu_bitwise_32
+# -- Compiling architecture structural of alu_bitwise_32
+# -- Compiling entity alu_out_mux_32
+# -- Compiling architecture structural of alu_out_mux_32
+# -- Compiling entity alu_zero_nor32
+# -- Compiling architecture gate_level of alu_zero_nor32
+# -- Compiling entity alu
+# -- Compiling architecture structural of alu
+# vcom: End time: 19:39:59 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/barrel_shifter.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:39:59 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/barrel_shifter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bs_mux2t1
+# -- Compiling architecture gate_level of bs_mux2t1
+# -- Compiling entity barrel_shifter
+# -- Compiling architecture structural of barrel_shifter
+# vcom: End time: 19:39:59 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/Control_Unit.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:39:59 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/Control_Unit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity control_unit
+# -- Compiling architecture dataflow of control_unit
+# vcom: End time: 19:39:59 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/decoder.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:39:59 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/decoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity decoder
+# -- Compiling architecture dataflow of decoder
+# vcom: End time: 19:39:59 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dmem_word_addr.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:39:59 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dmem_word_addr.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dmem_word_addr
+# -- Compiling architecture dataflow of dmem_word_addr
+# vcom: End time: 19:39:59 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/fetch_logic.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:39:59 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/fetch_logic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity fetch_logic
+# -- Compiling architecture rtl of fetch_logic
+# vcom: End time: 19:40:00 on Nov 11,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/imm_gen.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:40:00 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/imm_gen.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity imm_gen
+# -- Compiling architecture dataflow of imm_gen
+# vcom: End time: 19:40:00 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux2_32.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:40:00 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux2_32.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux2_32
+# -- Compiling architecture dataflow of mux2_32
+# vcom: End time: 19:40:00 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux4_32.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:40:00 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux4_32.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux4_32
+# -- Compiling architecture dataflow of mux4_32
+# vcom: End time: 19:40:00 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/writeback_select.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:40:00 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/writeback_select.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity writeback_select
+# -- Compiling architecture dataflow of writeback_select
+# vcom: End time: 19:40:00 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/RISCV_types.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:40:00 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/RISCV_types.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package RISCV_types
+# -- Compiling package body RISCV_types
+# -- Loading package RISCV_types
+# vcom: End time: 19:40:00 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_n.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:40:00 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_n.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity reg_n
+# -- Compiling architecture structural of reg_n
+# vcom: End time: 19:40:00 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/pipeline_regs.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:40:00 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/pipeline_regs.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity reg_IF_ID
+# -- Compiling architecture behavioral of reg_IF_ID
+# -- Compiling entity reg_ID_EX
+# -- Compiling architecture behavioral of reg_ID_EX
+# -- Compiling entity reg_EX_MEM
+# -- Compiling architecture behavioral of reg_EX_MEM
+# -- Compiling entity reg_MEM_WB
+# -- Compiling architecture behavioral of reg_MEM_WB
+# vcom: End time: 19:40:00 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_file.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:40:00 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_file.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity reg_file
+# -- Compiling architecture structural of reg_file
+# vcom: End time: 19:40:00 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:40:00 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dffg
+# -- Compiling architecture mixed of dffg
+# vcom: End time: 19:40:00 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg_set.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:40:00 on Nov 11,2026
+# vcom -reportprogress 30 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg_set.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dffg_set
+# -- Compiling architecture mixed of dffg_set
+# vcom: End time: 19:40:00 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/pipeline_regs.vhd
+# QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+# Start time: 19:40:06 on Nov 11,2026
+# vcom -reportprogress 300 -work work /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/pipeline_regs.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity reg_IF_ID
+# -- Compiling architecture behavioral of reg_IF_ID
+# -- Compiling entity reg_ID_EX
+# -- Compiling architecture behavioral of reg_ID_EX
+# -- Compiling entity reg_EX_MEM
+# -- Compiling architecture behavioral of reg_EX_MEM
+# -- Compiling entity reg_MEM_WB
+# -- Compiling architecture behavioral of reg_MEM_WB
+# vcom: End time: 19:40:06 on Nov 11,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

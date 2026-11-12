@@ -1,0 +1,1122 @@
+m255
+K4
+z2
+!s11e vcom 2026.2 2026.05, May 18 2026
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src
+Ealu
+Z1 w1793215464
+Z2 DPx3 std 6 textio 0 22 <UlP6K1@RDQa_MJ[:UEnP2
+Z3 DPx4 ieee 14 std_logic_1164 0 22 TDbGXLH=YSoj9JRY2gkNY0
+!i122 1
+R0
+Z4 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/alu.vhd
+Z5 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/alu.vhd
+l0
+L346 1
+VXhFc[`IGhD:Mz68@nYo0I3
+!s100 C2AelzU>a]Q94R7aHT>C13
+Z6 OL;C;2026.2;84
+32
+Z7 !s110 1794447599
+!i10b 1
+Z8 !s108 1794447599.000000
+Z9 !s90 -reportprogress|300|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/alu.vhd|
+Z10 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/alu.vhd|
+!i113 0
+Z11 o-work work
+Z12 tExplicit 1 CvgOpt 0
+Astructural
+R2
+R3
+DEx4 work 3 alu 0 22 XhFc[`IGhD:Mz68@nYo0I3
+!i122 1
+l438
+L356 160
+VFUmFIY;^G`4TJ2lWh^VXO1
+!s100 cA]6omSPFVX@]4UK>8;ne2
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Ealu_add_sub_32
+R1
+R2
+R3
+!i122 1
+R0
+R4
+R5
+l0
+L44 1
+Vi4g2Dk?KYLV?I_FlPe_821
+!s100 _@cXAk?gnj?Y2aWM;b7G>3
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 14 alu_add_sub_32 0 22 i4g2Dk?KYLV?I_FlPe_821
+!i122 1
+l80
+L55 56
+V2=mib_?Ii4Db0cmhkSJB?0
+!s100 M1[lO8BzOe=;@H93BRbI12
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Ealu_bitwise_32
+R1
+R2
+R3
+!i122 1
+R0
+R4
+R5
+l0
+L177 1
+V7m31GVR3]Sblm;k0TF4DR0
+!s100 KJNS`L?6Ak6?Oed<<TC;>3
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 14 alu_bitwise_32 0 22 7m31GVR3]Sblm;k0TF4DR0
+!i122 1
+l188
+L187 8
+V7JHg>Lf0UPKbLcb;K<7Q00
+!s100 9_X5D9_A83ocZ7cgne1`32
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Ealu_full_adder
+R1
+R2
+R3
+!i122 1
+R0
+R4
+R5
+l0
+L19 1
+VhSzhBVc1ibIgTD6`Q=`7F0
+!s100 Q^zaF:Tz2jX10TEBUBm9h2
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Agate_level
+R2
+R3
+DEx4 work 14 alu_full_adder 0 22 hSzhBVc1ibIgTD6`Q=`7F0
+!i122 1
+l31
+L29 7
+VoAKIL7Q38;UBc`_h55@ZQ3
+!s100 V_M]gQ>I:LT`gJB3<^nHo0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Ealu_out_mux_32
+R1
+R2
+R3
+!i122 1
+R0
+R4
+R5
+l0
+L203 1
+Vb`mF@dRdUZJU^XX2hKgmJ3
+!s100 1oD:LCTmeLd:<P214;k>k3
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 14 alu_out_mux_32 0 22 b`mF@dRdUZJU^XX2hKgmJ3
+!i122 1
+l235
+L217 80
+VHLLMcZYn]8aC:Z3M0liG41
+!s100 Nk9aHT>XX6FO2j_WIdN2C2
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Ealu_slt_unit
+R1
+R2
+R3
+!i122 1
+R0
+R4
+R5
+l0
+L119 1
+VS<0X3RNLIYl@kD<RT^?AI1
+!s100 md9T4lJ^k?l9Z1Yj[O3;`3
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 12 alu_slt_unit 0 22 S<0X3RNLIYl@kD<RT^?AI1
+!i122 1
+l145
+L130 39
+VVCZ`PYK[:0?UBhdXfY4Fg1
+!s100 4OBFfzLdL;e66c@n3cH^22
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Ealu_zero_nor32
+R1
+R2
+R3
+!i122 1
+R0
+R4
+R5
+l0
+L305 1
+VFM=?=kiDPJTU2k0c><Q`[1
+!s100 =:f9:]2eX<8;i^`GRXe=;2
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Agate_level
+R2
+R3
+DEx4 work 14 alu_zero_nor32 0 22 FM=?=kiDPJTU2k0c><Q`[1
+!i122 1
+l318
+L312 26
+Vk1R=oNgeg<ZFSgSn0HEAf3
+!s100 Kme_XC8oH=9F9?GGa9CQ]0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Ebarrel_shifter
+Z13 w1793215488
+R2
+R3
+!i122 2
+R0
+Z14 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/barrel_shifter.vhd
+Z15 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/barrel_shifter.vhd
+l0
+L36 1
+VnG:cE^]bZ<0g>;UfcdAIH1
+!s100 ?FmW7`>MmOkh[mmmATQ1<0
+R6
+32
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/barrel_shifter.vhd|
+Z17 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/barrel_shifter.vhd|
+!i113 0
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 14 barrel_shifter 0 22 nG:cE^]bZ<0g>;UfcdAIH1
+!i122 2
+l69
+L46 189
+VDhS[UmKLbhHQzfSHh8IH82
+!s100 Ylog`SlzLLO5_al4ZTDUE0
+R6
+32
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 0
+R11
+R12
+Ebs_mux2t1
+R13
+R2
+R3
+!i122 2
+R0
+R14
+R15
+l0
+L15 1
+Vl7;elf9R?;V62]nLVRJ791
+!s100 Xf>^L6V59J<SP_F:FI1g42
+R6
+32
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 0
+R11
+R12
+Agate_level
+R2
+R3
+DEx4 work 9 bs_mux2t1 0 22 l7;elf9R?;V62]nLVRJ791
+!i122 2
+l25
+L24 4
+Vd3jUBeji@hd1R1h[K=SIc2
+!s100 Te;h[GNR0GXgoCW]2YzX>2
+R6
+32
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 0
+R11
+R12
+Econtrol_unit
+Z18 w1792951218
+R2
+R3
+!i122 3
+R0
+Z19 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/Control_Unit.vhd
+Z20 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/Control_Unit.vhd
+l0
+L4 1
+Vf7Thg=jD]c4TD0P[kN53F2
+!s100 [dZY>Bn9XcBoJY0iDnV8a0
+R6
+32
+R7
+!i10b 1
+R8
+Z21 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/Control_Unit.vhd|
+Z22 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/Control_Unit.vhd|
+!i113 0
+R11
+R12
+Adataflow
+R2
+R3
+DEx4 work 12 control_unit 0 22 f7Thg=jD]c4TD0P[kN53F2
+!i122 3
+l38
+L22 87
+VR41O`W1gTP=9Sc^L0BzK?2
+!s100 fazGhHFzB8S8N6NkE<@T`1
+R6
+32
+R7
+!i10b 1
+R8
+R21
+R22
+!i113 0
+R11
+R12
+Edecoder
+Z23 w1792673454
+R2
+R3
+!i122 4
+R0
+Z24 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/decoder.vhd
+Z25 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/decoder.vhd
+l0
+L6 1
+VW9BecNX317_`CDoFd^SB02
+!s100 QLM=XM9MW5Vl[4TFA4c142
+R6
+32
+R7
+!i10b 1
+R8
+Z26 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/decoder.vhd|
+Z27 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/decoder.vhd|
+!i113 0
+R11
+R12
+Adataflow
+R2
+R3
+DEx4 work 7 decoder 0 22 W9BecNX317_`CDoFd^SB02
+!i122 4
+l14
+L12 41
+VE>0[U2J3Nk_OeY_o<hLWC1
+!s100 SV<e5J?[z];:ln`5l4FlU3
+R6
+32
+R7
+!i10b 1
+R8
+R26
+R27
+!i113 0
+R11
+R12
+Edffg
+R23
+R2
+R3
+!i122 15
+R0
+Z28 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg.vhd
+Z29 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg.vhd
+l0
+L23 1
+V<]b9Vm3e`GAN;Cnj:57L>2
+!s100 T4gcXQGMCgKJbn8XhBM;b0
+R6
+32
+Z30 !s110 1794447600
+!i10b 1
+Z31 !s108 1794447600.000000
+Z32 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg.vhd|
+Z33 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg.vhd|
+!i113 0
+R11
+R12
+Amixed
+R2
+R3
+DEx4 work 4 dffg 0 22 <]b9Vm3e`GAN;Cnj:57L>2
+!i122 15
+l37
+L33 29
+V`CHXPZKVEek`3gFWL_zFm2
+!s100 iOdlTUid@@]UimFK_53^C1
+R6
+32
+R30
+!i10b 1
+R31
+R32
+R33
+!i113 0
+R11
+R12
+Edffg_set
+R23
+R2
+R3
+!i122 16
+R0
+Z34 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg_set.vhd
+Z35 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg_set.vhd
+l0
+L26 1
+VI;D`0?9J8G1PdQh[?4QM_0
+!s100 1ddzAb<_ziZkM^HD94fzC2
+R6
+32
+R30
+!i10b 1
+R31
+Z36 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg_set.vhd|
+Z37 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg_set.vhd|
+!i113 0
+R11
+R12
+Amixed
+R2
+R3
+DEx4 work 8 dffg_set 0 22 I;D`0?9J8G1PdQh[?4QM_0
+!i122 16
+l40
+L36 29
+Vefgf6`@z]RPMDTVXUnnV=1
+!s100 9Ao`^lEVX]I9JXaVTE95;0
+R6
+32
+R30
+!i10b 1
+R31
+R36
+R37
+!i113 0
+R11
+R12
+Edmem_word_addr
+R23
+R2
+R3
+!i122 5
+R0
+Z38 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dmem_word_addr.vhd
+Z39 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dmem_word_addr.vhd
+l0
+L5 1
+Vi63N_gP?[l>BA7JLkN@g[2
+!s100 Pog7=3]4WlY;ShLofaYl_2
+R6
+32
+R7
+!i10b 1
+R8
+Z40 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dmem_word_addr.vhd|
+Z41 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dmem_word_addr.vhd|
+!i113 0
+R11
+R12
+Adataflow
+R2
+R3
+DEx4 work 14 dmem_word_addr 0 22 i63N_gP?[l>BA7JLkN@g[2
+!i122 5
+l16
+L15 6
+V^QAfca=`JYnI1Z@?9:[o<2
+!s100 z@OK4DULbbUz[_N25Y:B33
+R6
+32
+R7
+!i10b 1
+R8
+R40
+R41
+!i113 0
+R11
+R12
+Efetch_logic
+R23
+Z42 DPx4 ieee 11 numeric_std 0 22 m=kP7jRZW]kY;6MU;0z<22
+R2
+R3
+!i122 6
+R0
+Z43 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/fetch_logic.vhd
+Z44 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/fetch_logic.vhd
+l0
+L5 1
+VTW1QdTK[L>iE]Hf==Ad<:2
+!s100 B>0^Wn`E1zc><JES]8d8n3
+R6
+32
+R30
+!i10b 1
+R8
+Z45 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/fetch_logic.vhd|
+Z46 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/fetch_logic.vhd|
+!i113 0
+R11
+R12
+Artl
+R42
+R2
+R3
+DEx4 work 11 fetch_logic 0 22 TW1QdTK[L>iE]Hf==Ad<:2
+!i122 6
+l49
+L18 86
+VX>2WZUCfmnQG[@^5>L1C11
+!s100 ;b9AOX79XeRHkW_7JmiE31
+R6
+32
+R30
+!i10b 1
+R8
+R45
+R46
+!i113 0
+R11
+R12
+Eimm_gen
+R23
+R2
+R3
+!i122 7
+R0
+Z47 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/imm_gen.vhd
+Z48 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/imm_gen.vhd
+l0
+L7 1
+VFY@T3a:mH=njeMnnn[P>>1
+!s100 ;65XeFbOI`fI@Y9chinKN2
+R6
+32
+R30
+!i10b 1
+R31
+Z49 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/imm_gen.vhd|
+Z50 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/imm_gen.vhd|
+!i113 0
+R11
+R12
+Adataflow
+R2
+R3
+DEx4 work 7 imm_gen 0 22 FY@T3a:mH=njeMnnn[P>>1
+!i122 7
+l22
+L15 46
+VkO;m1QAAF_JTDe>l[6h`W3
+!s100 95N66D`h5MCJQ83<Eo;JP1
+R6
+32
+R30
+!i10b 1
+R31
+R49
+R50
+!i113 0
+R11
+R12
+Emux2_32
+R23
+R2
+R3
+!i122 8
+R0
+Z51 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux2_32.vhd
+Z52 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux2_32.vhd
+l0
+L4 1
+VV2R96HJdjOEo`ELQ7VBRD0
+!s100 KDZh8zHBJgU8maooCLTnf3
+R6
+32
+R30
+!i10b 1
+R31
+Z53 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux2_32.vhd|
+Z54 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux2_32.vhd|
+!i113 0
+R11
+R12
+Adataflow
+R2
+R3
+DEx4 work 7 mux2_32 0 22 V2R96HJdjOEo`ELQ7VBRD0
+!i122 8
+l14
+L13 4
+V[P=b:F=f1ajhA2jh077TL1
+!s100 f1lAjTPdB;FN<5FN5;cn^0
+R6
+32
+R30
+!i10b 1
+R31
+R53
+R54
+!i113 0
+R11
+R12
+Emux32to1
+R23
+R42
+R2
+R3
+!i122 0
+R0
+Z55 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/32to1mux.vhd
+Z56 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/32to1mux.vhd
+l0
+L5 1
+V1BN>oF5^Z8C6aa1f1Z:EE1
+!s100 nm`bSdE9To5c9`50n^QXZ0
+R6
+32
+R7
+!i10b 1
+R8
+Z57 !s90 -reportprogress|300|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/32to1mux.vhd|
+Z58 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/32to1mux.vhd|
+!i113 0
+R11
+R12
+Adataflow
+R42
+R2
+R3
+DEx4 work 8 mux32to1 0 22 1BN>oF5^Z8C6aa1f1Z:EE1
+!i122 0
+l18
+L13 15
+VF3K@k1foIQ_7fW<JgFINQ1
+!s100 jcl6k^IX[SA@FcGJVO_Cd2
+R6
+32
+R7
+!i10b 1
+R8
+R57
+R58
+!i113 0
+R11
+R12
+Emux4_32
+R23
+R2
+R3
+!i122 9
+R0
+Z59 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux4_32.vhd
+Z60 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux4_32.vhd
+l0
+L5 1
+VO^g<4X^Q:d:=7^]CLMg7:0
+!s100 XD;c54QGP64D_d>G[Galk0
+R6
+32
+R30
+!i10b 1
+R31
+Z61 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux4_32.vhd|
+Z62 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/mux4_32.vhd|
+!i113 0
+R11
+R12
+Adataflow
+R2
+R3
+DEx4 work 7 mux4_32 0 22 O^g<4X^Q:d:=7^]CLMg7:0
+!i122 9
+l17
+L16 8
+VF>O=RDWgD4@WHgfaIFCR^0
+!s100 N]adKc_I06X?LXOE[oiKO0
+R6
+32
+R30
+!i10b 1
+R31
+R61
+R62
+!i113 0
+R11
+R12
+Ereg_ex_mem
+Z63 w1794447413
+R2
+R3
+!i122 17
+R0
+Z64 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/pipeline_regs.vhd
+Z65 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/pipeline_regs.vhd
+l0
+L239 1
+VL>BK5FkB0U<QOaU=eUXLC3
+!s100 =Z8`NkEEfUc=2l6QBL]1L3
+R6
+32
+Z66 !s110 1794447606
+!i10b 1
+Z67 !s108 1794447606.000000
+Z68 !s90 -reportprogress|300|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/pipeline_regs.vhd|
+Z69 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/pipeline_regs.vhd|
+!i113 0
+R11
+R12
+Abehavioral
+R2
+R3
+Z70 DEx4 work 10 reg_ex_mem 0 22 L>BK5FkB0U<QOaU=eUXLC3
+!i122 17
+l292
+Z71 L278 78
+Z72 VXO26e3YLL9iLkQ><6Lj<N2
+Z73 !s100 17?ZdFk^oFM7@C>4z:hKd1
+R6
+32
+R66
+!i10b 1
+R67
+R68
+R69
+!i113 0
+R11
+R12
+Ereg_file
+R23
+R2
+R3
+!i122 14
+R0
+Z74 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_file.vhd
+Z75 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_file.vhd
+l0
+L4 1
+VH[>LiDgncC2jcBMmH;ONg3
+!s100 mFEe:D:fmSaZTIZbWPb5H3
+R6
+32
+R30
+!i10b 1
+R31
+Z76 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_file.vhd|
+Z77 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_file.vhd|
+!i113 0
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 8 reg_file 0 22 H[>LiDgncC2jcBMmH;ONg3
+!i122 14
+l54
+L18 81
+V9^gPRPEECl@iP9Y:V_iUL3
+!s100 >z=Cb4ibjETMB``TbA[G01
+R6
+32
+R30
+!i10b 1
+R31
+R76
+R77
+!i113 0
+R11
+R12
+Ereg_id_ex
+R63
+R2
+R3
+!i122 17
+R0
+R64
+R65
+l0
+L65 1
+V8JP[MHOkUK1h?N]oGIhXT2
+!s100 O@[a`DzATzW?Lo4LoD:3B0
+R6
+32
+R66
+!i10b 1
+R67
+R68
+R69
+!i113 0
+R11
+R12
+Abehavioral
+R2
+R3
+Z78 DEx4 work 9 reg_id_ex 0 22 8JP[MHOkUK1h?N]oGIhXT2
+!i122 17
+l139
+Z79 L118 113
+Z80 V]Q^ml@Wzcc?EK5?mRY9AC0
+Z81 !s100 XTbN<EE4SVOSEQB3`d=^?0
+R6
+32
+R66
+!i10b 1
+R67
+R68
+R69
+!i113 0
+R11
+R12
+Ereg_if_id
+R63
+R2
+R3
+!i122 17
+R0
+R64
+R65
+l0
+L14 1
+Vn@A37E^iJihFkk2VCO^o12
+!s100 ^WjMINcU7WomTE29MOE3?0
+R6
+32
+R66
+!i10b 1
+R67
+R68
+R69
+!i113 0
+R11
+R12
+Abehavioral
+R2
+R3
+Z82 DEx4 work 9 reg_if_id 0 22 n@A37E^iJihFkk2VCO^o12
+!i122 17
+l33
+Z83 L29 28
+Z84 Vaj_8=ABQZ;aOJ:7?c[3NZ3
+Z85 !s100 Xb_f>m<gM]ZJ9ohCEWkXC2
+R6
+32
+R66
+!i10b 1
+R67
+R68
+R69
+!i113 0
+R11
+R12
+Ereg_mem_wb
+R63
+R2
+R3
+!i122 17
+R0
+R64
+R65
+l0
+L364 1
+V4nROS;dMkalegWdnjhobW0
+!s100 gW5@MLKkF`?4ScGbKFG[m2
+R6
+32
+R66
+!i10b 1
+R67
+R68
+R69
+!i113 0
+R11
+R12
+Abehavioral
+R2
+R3
+Z86 DEx4 work 10 reg_mem_wb 0 22 4nROS;dMkalegWdnjhobW0
+!i122 17
+l414
+Z87 L401 73
+Z88 VS?P13ejBXB8OU_GAjVF?F2
+Z89 !s100 WGIjO6@FRC2nD>mBN`bLe2
+R6
+32
+R66
+!i10b 1
+R67
+R68
+R69
+!i113 0
+R11
+R12
+Ereg_n
+R23
+R2
+R3
+!i122 12
+R0
+Z90 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_n.vhd
+Z91 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_n.vhd
+l0
+L7 1
+V8MN^D:DR[AZPOKQHIBT^53
+!s100 DMi]Q>_2jozDZjO`AHSNY1
+R6
+32
+R30
+!i10b 1
+R31
+Z92 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_n.vhd|
+Z93 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/reg_n.vhd|
+!i113 0
+R11
+R12
+Astructural
+R2
+R3
+DEx4 work 5 reg_n 0 22 8MN^D:DR[AZPOKQHIBT^53
+!i122 12
+l25
+L16 21
+Ve`9fDZNOR;6z`b=JCR`>[3
+!s100 ggb?93T<1<@akZW9FB5Ti2
+R6
+32
+R30
+!i10b 1
+R31
+R92
+R93
+!i113 0
+R11
+R12
+Priscv_types
+R2
+R3
+!i122 11
+Z94 w1792969727
+R0
+Z95 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/RISCV_types.vhd
+Z96 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/RISCV_types.vhd
+l0
+L15 13
+V;OiGSiGz:bWbJ>FjhC[L92
+!s100 akSOk]IC9Y>?WgK7AoAX^2
+R6
+32
+R30
+!i10b 1
+R31
+Z97 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/RISCV_types.vhd|
+Z98 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/RISCV_types.vhd|
+!i113 0
+R11
+R12
+Bbody
+DPx4 work 11 riscv_types 0 22 ;OiGSiGz:bWbJ>FjhC[L92
+R2
+R3
+!i122 11
+l0
+L29 3
+VX^SkeN8>@VaDoQ^VIV[_T3
+!s100 GDR?4:nAbmIiboG0gc@;N2
+R6
+32
+R30
+!i10b 1
+R31
+R97
+R98
+!i113 0
+R11
+R12
+Ewriteback_select
+Z99 w1792951239
+R2
+R3
+!i122 10
+R0
+Z100 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/writeback_select.vhd
+Z101 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/writeback_select.vhd
+l0
+L4 1
+V3eBi7<aUA4X>:43AkSz4i0
+!s100 C`]M@2O[D:Q^G^F369S`o3
+R6
+32
+R30
+!i10b 1
+R31
+Z102 !s90 -reportprogress|30|-work|work|/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/writeback_select.vhd|
+Z103 !s107 /home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/writeback_select.vhd|
+!i113 0
+R11
+R12
+Adataflow
+R2
+R3
+DEx4 work 16 writeback_select 0 22 3eBi7<aUA4X>:43AkSz4i0
+!i122 10
+l30
+L19 47
+V[WA62HzaW>fPiGgc:?D<Y3
+!s100 ^HH0Ma5U2f^N7kQ2AL;ZR1
+R6
+32
+R30
+!i10b 1
+R31
+R102
+R103
+!i113 0
+R11
+R12
