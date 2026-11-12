@@ -1,0 +1,37 @@
+[
+  {
+    "test": "grendel_sw.s",
+    "words": 717,
+    "cycles": 5815,
+    "architectural_events": 2841,
+    "result": "PASS"
+  },
+  {
+    "test": "proj1_base_test_sw.s",
+    "words": 155,
+    "cycles": 159,
+    "architectural_events": 108,
+    "result": "PASS"
+  },
+  {
+    "test": "proj1_cf_test_sw.s",
+    "words": 201,
+    "cycles": 385,
+    "architectural_events": 161,
+    "result": "PASS"
+  },
+  {
+    "test": "proj1_extrasort_sw.s",
+    "words": 91,
+    "cycles": 1515,
+    "architectural_events": 456,
+    "result": "PASS"
+  },
+  {
+    "test": "proj1_mergesort_sw.s",
+    "words": 210,
+    "cycles": 2991,
+    "architectural_events": 1200,
+    "result": "PASS"
+  }
+]

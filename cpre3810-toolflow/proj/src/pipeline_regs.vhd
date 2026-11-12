@@ -1,7 +1,8 @@
 -------------------------------------------------------------------------
 -- pipeline_regs.vhd
 -- Individual IF/ID, ID/EX, EX/MEM, and MEM/WB Pipeline Registers
--- Supports synchronous reset (iRST / i_flush) and stall (i_stall).
+-- Supports asynchronous reset (i_rst), synchronous flush, and stall.
+-- Software-scheduled integration ties i_stall and i_flush low.
 -- When i_flush = '1' or iRST = '1', control signals clear to '0' (NOP).
 -------------------------------------------------------------------------
 
