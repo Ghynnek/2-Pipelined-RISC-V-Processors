@@ -1,0 +1,111 @@
+
+#
+# CprE 381 toolflow Timing dump
+#
+
+FMax: 51.16mhz Clk Constraint: 20.00ns Slack: 0.46ns
+
+The path is given below
+
+ ===================================================================
+ From Node    : reg_ID_EX:U_ID_EX|r_alu_src
+ To Node      : fetch_logic_sw:U_FETCH|dffg:\G_PC:2:G_CLR:PC_FF|s_Q
+ Launch Clock : iCLK
+ Latch Clock  : iCLK
+ Data Arrival Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+      0.000      0.000           launch edge time
+      3.062      3.062  R        clock network delay
+      3.294      0.232     uTco  reg_ID_EX:U_ID_EX|r_alu_src
+      3.294      0.000 FF  CELL  U_ID_EX|r_alu_src|q
+      3.732      0.438 FF    IC  U_ALUB|y[0]~29|datab
+      4.173      0.441 FR  CELL  U_ALUB|y[0]~29|combout
+      4.607      0.434 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:0:U_FA|o_cout~1|datab
+      5.009      0.402 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:0:U_FA|o_cout~1|combout
+      5.268      0.259 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:1:U_FA|o_cout~0|datab
+      5.670      0.402 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:1:U_FA|o_cout~0|combout
+      5.896      0.226 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:2:U_FA|o_cout~0|datad
+      6.051      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:2:U_FA|o_cout~0|combout
+      6.280      0.229 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:3:U_FA|o_cout~0|datad
+      6.435      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:3:U_FA|o_cout~0|combout
+      6.662      0.227 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:4:U_FA|o_cout~0|datad
+      6.817      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:4:U_FA|o_cout~0|combout
+      7.197      0.380 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:5:U_FA|o_cout~0|datad
+      7.352      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:5:U_FA|o_cout~0|combout
+      7.579      0.227 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:6:U_FA|o_cout~0|datad
+      7.734      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:6:U_FA|o_cout~0|combout
+      7.962      0.228 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:7:U_FA|o_cout~0|datad
+      8.117      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:7:U_FA|o_cout~0|combout
+      8.345      0.228 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:8:U_FA|o_cout~0|datad
+      8.500      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:8:U_FA|o_cout~0|combout
+      8.728      0.228 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:9:U_FA|o_cout~0|datad
+      8.883      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:9:U_FA|o_cout~0|combout
+      9.110      0.227 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:10:U_FA|o_cout~0|datad
+      9.265      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:10:U_FA|o_cout~0|combout
+      9.490      0.225 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:11:U_FA|o_cout~0|datad
+      9.645      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:11:U_FA|o_cout~0|combout
+      9.871      0.226 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:12:U_FA|o_cout~0|datad
+     10.026      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:12:U_FA|o_cout~0|combout
+     10.253      0.227 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:13:U_FA|o_cout~0|datac
+     10.540      0.287 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:13:U_FA|o_cout~0|combout
+     10.765      0.225 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:14:U_FA|o_cout~0|datac
+     11.052      0.287 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:14:U_FA|o_cout~0|combout
+     11.280      0.228 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:15:U_FA|o_cout~0|datad
+     11.435      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:15:U_FA|o_cout~0|combout
+     11.658      0.223 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:16:U_FA|o_cout~0|datac
+     11.945      0.287 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:16:U_FA|o_cout~0|combout
+     12.171      0.226 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:17:U_FA|o_cout~0|datad
+     12.326      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:17:U_FA|o_cout~0|combout
+     12.551      0.225 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:18:U_FA|o_cout~0|datac
+     12.838      0.287 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:18:U_FA|o_cout~0|combout
+     13.065      0.227 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:19:U_FA|o_cout~0|datad
+     13.220      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:19:U_FA|o_cout~0|combout
+     13.914      0.694 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:20:U_FA|o_cout~0|datad
+     14.069      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:20:U_FA|o_cout~0|combout
+     14.296      0.227 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:21:U_FA|o_cout~0|datad
+     14.451      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:21:U_FA|o_cout~0|combout
+     14.679      0.228 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:22:U_FA|o_cout~0|datad
+     14.834      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:22:U_FA|o_cout~0|combout
+     15.062      0.228 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:23:U_FA|o_cout~0|datad
+     15.217      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:23:U_FA|o_cout~0|combout
+     15.431      0.214 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:24:U_FA|o_cout~0|datad
+     15.586      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:24:U_FA|o_cout~0|combout
+     15.798      0.212 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:25:U_FA|o_cout~0|datad
+     15.953      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:25:U_FA|o_cout~0|combout
+     16.164      0.211 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:26:U_FA|o_cout~0|datad
+     16.319      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:26:U_FA|o_cout~0|combout
+     16.532      0.213 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:27:U_FA|o_cout~0|datad
+     16.687      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:27:U_FA|o_cout~0|combout
+     16.899      0.212 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:28:U_FA|o_cout~0|datad
+     17.054      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:28:U_FA|o_cout~0|combout
+     17.479      0.425 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:29:U_FA|o_cout~0|datad
+     17.634      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:29:U_FA|o_cout~0|combout
+     17.847      0.213 RR    IC  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:30:U_FA|o_cout~0|datad
+     18.002      0.155 RR  CELL  U_ALU|U_ADD_SUB|\G_ADD_SUB_BITS:30:U_FA|o_cout~0|combout
+     18.219      0.217 RR    IC  U_ALU|U_OUT_MUX|\G_MUX_TREE:31:U_MUX_0XXX|o_y~1|datad
+     18.358      0.139 RF  CELL  U_ALU|U_OUT_MUX|\G_MUX_TREE:31:U_MUX_0XXX|o_y~1|combout
+     18.608      0.250 FF    IC  U_ALU|U_OUT_MUX|\G_MUX_TREE:31:U_MUX_0XXX|o_y~3|datad
+     18.733      0.125 FF  CELL  U_ALU|U_OUT_MUX|\G_MUX_TREE:31:U_MUX_0XXX|o_y~3|combout
+     18.960      0.227 FF    IC  U_ALU|U_OUT_MUX|\G_MUX_TREE:31:U_MUX_0XXX|o_y~4|datad
+     19.110      0.150 FR  CELL  U_ALU|U_OUT_MUX|\G_MUX_TREE:31:U_MUX_0XXX|o_y~4|combout
+     19.562      0.452 RR    IC  U_FETCH|cond~27|datad
+     19.701      0.139 RF  CELL  U_FETCH|cond~27|combout
+     19.933      0.232 FF    IC  U_FETCH|cond~28|datac
+     20.213      0.280 FF  CELL  U_FETCH|cond~28|combout
+     20.452      0.239 FF    IC  U_FETCH|Mux29~1|datad
+     20.602      0.150 FR  CELL  U_FETCH|Mux29~1|combout
+     22.186      1.584 RR    IC  U_FETCH|\G_PC:2:G_CLR:PC_FF|s_Q|sload
+     22.902      0.716 RF  CELL  fetch_logic_sw:U_FETCH|dffg:\G_PC:2:G_CLR:PC_FF|s_Q
+ Data Required Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+     20.000     20.000           latch edge time
+     23.351      3.351  R        clock network delay
+     23.359      0.008           clock pessimism removed
+     23.339     -0.020           clock uncertainty
+     23.357      0.018     uTsu  fetch_logic_sw:U_FETCH|dffg:\G_PC:2:G_CLR:PC_FF|s_Q
+ Data Arrival Time  :    22.902
+ Data Required Time :    23.357
+ Slack              :     0.455
+ ===================================================================
