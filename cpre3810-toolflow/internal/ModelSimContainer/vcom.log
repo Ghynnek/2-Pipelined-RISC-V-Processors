@@ -1,0 +1,91 @@
+QuestaSim-64 vcom 2026.2 Compiler 2026.05 May 18 2026
+Start time: 20:25:36 on Nov 11,2026
+vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd internal/testpy/tb.vhd proj/src/reg_n.vhd proj/src/mux4_32.vhd proj/src/fetch_logic.vhd proj/src/fetch_logic_sw.vhd proj/src/32to1mux.vhd proj/src/barrel_shifter.vhd proj/src/RISCV_types.vhd proj/src/dmem_word_addr.vhd proj/src/mux2_32.vhd proj/src/imm_gen.vhd proj/src/reg_file.vhd proj/src/pipeline_regs.vhd proj/src/dffg.vhd proj/src/Control_Unit.vhd proj/src/alu.vhd proj/src/dffg_set.vhd proj/src/decoder.vhd proj/src/writeback_select.vhd proj/src/Adder_Files/xorg2.vhd proj/src/Adder_Files/FullAdder.vhd proj/src/Adder_Files/andg2.vhd proj/src/Adder_Files/org2.vhd proj/src/Adder_Files/Adder_n.vhd proj/src/TopLevel/RISCV_Processor.vhd proj/src/TopLevel/mem.vhd 
+** Warning: (vcom-223) The environment variable MGC_HOME will be deprecated in future releases. Please use QSIM_HOME instead.
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package RISCV_types
+-- Compiling package body RISCV_types
+-- Loading package RISCV_types
+-- Loading package std_logic_textio
+-- Loading package ENV
+-- Compiling entity tb
+-- Compiling architecture mixed of tb
+-- Compiling entity reg_n
+-- Compiling architecture structural of reg_n
+-- Compiling entity mux4_32
+-- Compiling architecture dataflow of mux4_32
+-- Loading package NUMERIC_STD
+-- Compiling entity fetch_logic
+-- Compiling architecture rtl of fetch_logic
+-- Compiling entity fetch_logic_sw
+-- Compiling architecture rtl of fetch_logic_sw
+-- Compiling entity mux32to1
+-- Compiling architecture dataflow of mux32to1
+-- Compiling entity bs_mux2t1
+-- Compiling architecture gate_level of bs_mux2t1
+-- Compiling entity barrel_shifter
+-- Compiling architecture structural of barrel_shifter
+** Warning: proj/src/RISCV_types.vhd(15): (vcom-1615) Existing package 'RISCV_types' at line 18 will be overwritten.
+-- Compiling package RISCV_types
+** Warning: proj/src/RISCV_types.vhd(29): (vcom-1615) Existing package body 'RISCV_types(body)' at line 29 will be overwritten.
+-- Compiling package body RISCV_types
+-- Loading package RISCV_types
+-- Compiling entity dmem_word_addr
+-- Compiling architecture dataflow of dmem_word_addr
+-- Compiling entity mux2_32
+-- Compiling architecture dataflow of mux2_32
+-- Compiling entity imm_gen
+-- Compiling architecture dataflow of imm_gen
+-- Compiling entity reg_file
+-- Compiling architecture structural of reg_file
+-- Compiling entity reg_IF_ID
+-- Compiling architecture behavioral of reg_IF_ID
+-- Compiling entity reg_ID_EX
+-- Compiling architecture behavioral of reg_ID_EX
+-- Compiling entity reg_EX_MEM
+-- Compiling architecture behavioral of reg_EX_MEM
+-- Compiling entity reg_MEM_WB
+-- Compiling architecture behavioral of reg_MEM_WB
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+-- Compiling entity control_unit
+-- Compiling architecture dataflow of control_unit
+-- Compiling entity alu_full_adder
+-- Compiling architecture gate_level of alu_full_adder
+-- Compiling entity alu_add_sub_32
+-- Compiling architecture structural of alu_add_sub_32
+-- Compiling entity alu_slt_unit
+-- Compiling architecture structural of alu_slt_unit
+-- Compiling entity alu_bitwise_32
+-- Compiling architecture structural of alu_bitwise_32
+-- Compiling entity alu_out_mux_32
+-- Compiling architecture structural of alu_out_mux_32
+-- Compiling entity alu_zero_nor32
+-- Compiling architecture gate_level of alu_zero_nor32
+-- Compiling entity alu
+-- Compiling architecture structural of alu
+-- Compiling entity dffg_set
+-- Compiling architecture mixed of dffg_set
+-- Compiling entity decoder
+-- Compiling architecture dataflow of decoder
+-- Compiling entity writeback_select
+-- Compiling architecture dataflow of writeback_select
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+-- Compiling entity FullAdder
+-- Compiling architecture structural of FullAdder
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+-- Compiling entity Adder_N
+-- Compiling architecture structural of Adder_N
+-- Loading package RISCV_types
+-- Compiling entity RISCV_Processor
+-- Compiling architecture structure of RISCV_Processor
+-- Compiling entity mem
+-- Compiling architecture rtl of mem
+vcom: End time: 20:25:36 on Nov 11,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 3
