@@ -1,0 +1,27 @@
+[inst #1] addi x1,x0,0
+Register Write to Reg: 0x01 Val: 0x00000000
+[inst #2] addi x2,x0,0
+Register Write to Reg: 0x02 Val: 0x00000000
+[inst #3] addi x3,x0,0
+Register Write to Reg: 0x03 Val: 0x00000000
+[inst #4] addi x4,x0,0
+Register Write to Reg: 0x04 Val: 0x00000000
+[inst #5] addi x5,x0,0
+Register Write to Reg: 0x05 Val: 0x00000000
+[inst #6] addi x1,x0,10
+Register Write to Reg: 0x01 Val: 0x0000000A
+[inst #7] ori x2,x1,2047
+Register Write to Reg: 0x02 Val: 0x000007FF
+[inst #8] addi x3,x0,1024
+Register Write to Reg: 0x03 Val: 0x00000400
+[inst #9] ori x4,x3,-2048
+Register Write to Reg: 0x04 Val: 0xFFFFFC00
+[inst #10] addi x5,x0,16
+Register Write to Reg: 0x05 Val: 0x00000010
+[inst #11] ori x5,x5,4
+Register Write to Reg: 0x05 Val: 0x00000014
+[inst #12] ori x0,x5,255
+Register Write to Reg: 0x00 Val: 0x000000FF
+[inst #13] wfi 
+
+Program terminated by dropping off the bottom.

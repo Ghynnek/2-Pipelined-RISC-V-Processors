@@ -1,0 +1,11 @@
+[inst #1] bne x0,x1,16
+[inst #2] lui x1,1024
+Register Write to Reg: 0x01 Val: 0x00400000
+[inst #3] addi x1,x1,-4
+Register Write to Reg: 0x01 Val: 0x003FFFFC
+[inst #4] jalr x0,x1,4
+Register Write to Reg: 0x00 Val: 0x00400010
+[inst #5] bne x0,x1,16
+[inst #6] wfi 
+
+Program terminated by dropping off the bottom.

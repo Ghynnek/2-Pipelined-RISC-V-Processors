@@ -1,0 +1,1296 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11e vcom 2026.2 2026.05, May 18 2026
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src
+T_opt
+!i145 1
+!i144 0
+!s110 1795387433
+Vf<YBmCnk4SCP;IbN>nZ[01
+04 19 8 work tb_hazard_detection behavior 1
+=1-005056b6e2fc-6b037029-99a77-3a33
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+!i152 0
+o-quiet -auto_acc_if_foreign -work work
+tCvgOpt 0
+n@_opt
+OL;O;2026.2;84
+Ealu
+Z2 w1793215464
+Z3 DPx3 std 6 textio 0 22 <UlP6K1@RDQa_MJ[:UEnP2
+Z4 DPx4 ieee 14 std_logic_1164 0 22 TDbGXLH=YSoj9JRY2gkNY0
+!i122 1
+R1
+Z5 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/alu.vhd
+Z6 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/alu.vhd
+l0
+L346 1
+VXhFc[`IGhD:Mz68@nYo0I3
+!s100 C2AelzU>a]Q94R7aHT>C13
+Z7 OL;C;2026.2;84
+32
+Z8 !s110 1794447599
+!i10b 1
+!i113 0
+Z9 o-work work
+Z10 tExplicit 1 CvgOpt 0
+Astructural
+R3
+R4
+DEx4 work 3 alu 0 22 XhFc[`IGhD:Mz68@nYo0I3
+!i122 1
+l438
+L356 160
+VFUmFIY;^G`4TJ2lWh^VXO1
+!s100 cA]6omSPFVX@]4UK>8;ne2
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Ealu_add_sub_32
+R2
+R3
+R4
+!i122 1
+R1
+R5
+R6
+l0
+L44 1
+Vi4g2Dk?KYLV?I_FlPe_821
+!s100 _@cXAk?gnj?Y2aWM;b7G>3
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Astructural
+R3
+R4
+DEx4 work 14 alu_add_sub_32 0 22 i4g2Dk?KYLV?I_FlPe_821
+!i122 1
+l80
+L55 56
+V2=mib_?Ii4Db0cmhkSJB?0
+!s100 M1[lO8BzOe=;@H93BRbI12
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Ealu_bitwise_32
+R2
+R3
+R4
+!i122 1
+R1
+R5
+R6
+l0
+L177 1
+V7m31GVR3]Sblm;k0TF4DR0
+!s100 KJNS`L?6Ak6?Oed<<TC;>3
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Astructural
+R3
+R4
+DEx4 work 14 alu_bitwise_32 0 22 7m31GVR3]Sblm;k0TF4DR0
+!i122 1
+l188
+L187 8
+V7JHg>Lf0UPKbLcb;K<7Q00
+!s100 9_X5D9_A83ocZ7cgne1`32
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Ealu_full_adder
+R2
+R3
+R4
+!i122 1
+R1
+R5
+R6
+l0
+L19 1
+VhSzhBVc1ibIgTD6`Q=`7F0
+!s100 Q^zaF:Tz2jX10TEBUBm9h2
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Agate_level
+R3
+R4
+DEx4 work 14 alu_full_adder 0 22 hSzhBVc1ibIgTD6`Q=`7F0
+!i122 1
+l31
+L29 7
+VoAKIL7Q38;UBc`_h55@ZQ3
+!s100 V_M]gQ>I:LT`gJB3<^nHo0
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Ealu_out_mux_32
+R2
+R3
+R4
+!i122 1
+R1
+R5
+R6
+l0
+L203 1
+Vb`mF@dRdUZJU^XX2hKgmJ3
+!s100 1oD:LCTmeLd:<P214;k>k3
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Astructural
+R3
+R4
+DEx4 work 14 alu_out_mux_32 0 22 b`mF@dRdUZJU^XX2hKgmJ3
+!i122 1
+l235
+L217 80
+VHLLMcZYn]8aC:Z3M0liG41
+!s100 Nk9aHT>XX6FO2j_WIdN2C2
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Ealu_slt_unit
+R2
+R3
+R4
+!i122 1
+R1
+R5
+R6
+l0
+L119 1
+VS<0X3RNLIYl@kD<RT^?AI1
+!s100 md9T4lJ^k?l9Z1Yj[O3;`3
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Astructural
+R3
+R4
+DEx4 work 12 alu_slt_unit 0 22 S<0X3RNLIYl@kD<RT^?AI1
+!i122 1
+l145
+L130 39
+VVCZ`PYK[:0?UBhdXfY4Fg1
+!s100 4OBFfzLdL;e66c@n3cH^22
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Ealu_zero_nor32
+R2
+R3
+R4
+!i122 1
+R1
+R5
+R6
+l0
+L305 1
+VFM=?=kiDPJTU2k0c><Q`[1
+!s100 =:f9:]2eX<8;i^`GRXe=;2
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Agate_level
+R3
+R4
+DEx4 work 14 alu_zero_nor32 0 22 FM=?=kiDPJTU2k0c><Q`[1
+!i122 1
+l318
+L312 26
+Vk1R=oNgeg<ZFSgSn0HEAf3
+!s100 Kme_XC8oH=9F9?GGa9CQ]0
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Ebarrel_shifter
+Z11 w1793215488
+R3
+R4
+!i122 2
+R1
+Z12 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/barrel_shifter.vhd
+Z13 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/barrel_shifter.vhd
+l0
+L36 1
+VnG:cE^]bZ<0g>;UfcdAIH1
+!s100 ?FmW7`>MmOkh[mmmATQ1<0
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Astructural
+R3
+R4
+DEx4 work 14 barrel_shifter 0 22 nG:cE^]bZ<0g>;UfcdAIH1
+!i122 2
+l69
+L46 189
+VDhS[UmKLbhHQzfSHh8IH82
+!s100 Ylog`SlzLLO5_al4ZTDUE0
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Ebs_mux2t1
+R11
+R3
+R4
+!i122 2
+R1
+R12
+R13
+l0
+Z14 L15 1
+Vl7;elf9R?;V62]nLVRJ791
+!s100 Xf>^L6V59J<SP_F:FI1g42
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Agate_level
+R3
+R4
+DEx4 work 9 bs_mux2t1 0 22 l7;elf9R?;V62]nLVRJ791
+!i122 2
+l25
+L24 4
+Vd3jUBeji@hd1R1h[K=SIc2
+!s100 Te;h[GNR0GXgoCW]2YzX>2
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Econtrol_unit
+Z15 w1792951218
+R3
+R4
+!i122 3
+R1
+Z16 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/Control_Unit.vhd
+Z17 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/Control_Unit.vhd
+l0
+L4 1
+Vf7Thg=jD]c4TD0P[kN53F2
+!s100 [dZY>Bn9XcBoJY0iDnV8a0
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Adataflow
+R3
+R4
+DEx4 work 12 control_unit 0 22 f7Thg=jD]c4TD0P[kN53F2
+!i122 3
+l38
+L22 87
+VR41O`W1gTP=9Sc^L0BzK?2
+!s100 fazGhHFzB8S8N6NkE<@T`1
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Edecoder
+Z18 w1792673454
+R3
+R4
+!i122 4
+R1
+Z19 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/decoder.vhd
+Z20 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/decoder.vhd
+l0
+L6 1
+VW9BecNX317_`CDoFd^SB02
+!s100 QLM=XM9MW5Vl[4TFA4c142
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Adataflow
+R3
+R4
+DEx4 work 7 decoder 0 22 W9BecNX317_`CDoFd^SB02
+!i122 4
+l14
+L12 41
+VE>0[U2J3Nk_OeY_o<hLWC1
+!s100 SV<e5J?[z];:ln`5l4FlU3
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Edffg
+R18
+R3
+R4
+!i122 15
+R1
+Z21 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg.vhd
+Z22 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg.vhd
+l0
+L23 1
+V<]b9Vm3e`GAN;Cnj:57L>2
+!s100 T4gcXQGMCgKJbn8XhBM;b0
+R7
+32
+Z23 !s110 1794447600
+!i10b 1
+!i113 0
+R9
+R10
+Amixed
+R3
+R4
+DEx4 work 4 dffg 0 22 <]b9Vm3e`GAN;Cnj:57L>2
+!i122 15
+l37
+L33 29
+V`CHXPZKVEek`3gFWL_zFm2
+!s100 iOdlTUid@@]UimFK_53^C1
+R7
+32
+R23
+!i10b 1
+!i113 0
+R9
+R10
+Edffg_set
+R18
+R3
+R4
+!i122 16
+R1
+Z24 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg_set.vhd
+Z25 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dffg_set.vhd
+l0
+L26 1
+VI;D`0?9J8G1PdQh[?4QM_0
+!s100 1ddzAb<_ziZkM^HD94fzC2
+R7
+32
+R23
+!i10b 1
+!i113 0
+R9
+R10
+Amixed
+R3
+R4
+DEx4 work 8 dffg_set 0 22 I;D`0?9J8G1PdQh[?4QM_0
+!i122 16
+l40
+L36 29
+Vefgf6`@z]RPMDTVXUnnV=1
+!s100 9Ao`^lEVX]I9JXaVTE95;0
+R7
+32
+R23
+!i10b 1
+!i113 0
+R9
+R10
+Edmem_word_addr
+R18
+R3
+R4
+!i122 5
+R1
+Z26 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dmem_word_addr.vhd
+Z27 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/dmem_word_addr.vhd
+l0
+L5 1
+Vi63N_gP?[l>BA7JLkN@g[2
+!s100 Pog7=3]4WlY;ShLofaYl_2
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Adataflow
+R3
+R4
+DEx4 work 14 dmem_word_addr 0 22 i63N_gP?[l>BA7JLkN@g[2
+!i122 5
+l16
+L15 6
+V^QAfca=`JYnI1Z@?9:[o<2
+!s100 z@OK4DULbbUz[_N25Y:B33
+R7
+32
+R8
+!i10b 1
+!i113 0
+R9
+R10
+Efetch_logic
+R18
+Z28 DPx4 ieee 11 numeric_std 0 22 m=kP7jRZW]kY;6MU;0z<22
+R3
+R4
+!i122 6
+R1
+Z29 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/fetch_logic.vhd
+Z30 F/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/fetch_logic.vhd
+l0
+L5 1
+VTW1QdTK[L>iE]Hf==Ad<:2
+!s100 B>0^Wn`E1zc><JES]8d8n3
+R7
+32
+R23
+!i10b 1
+!i113 0
+R9
+R10
+Artl
+R28
+R3
+R4
+DEx4 work 11 fetch_logic 0 22 TW1QdTK[L>iE]Hf==Ad<:2
+!i122 6
+l49
+L18 86
+VX>2WZUCfmnQG[@^5>L1C11
+!s100 ;b9AOX79XeRHkW_7JmiE31
+R7
+32
+R23
+!i10b 1
+!i113 0
+R9
+R10
+Eforwarding_unit
+Z31 w1795386389
+R3
+R4
+!i122 18
+Z32 d/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src
+Z33 8/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/fowarding_unit.vhd
+Z34 F/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/fowarding_unit.vhd
+l0
+R14
+VRo0FboXezl?WkQNX]c7El1
+!s100 FaW[XXR?7OEHcUM:ghYO53
+R7
+32
+Z35 !s110 1795386423
+!i10b 1
+!i113 0
+R9
+R10
+Adataflow
+R3
+R4
+DEx4 work 15 forwarding_unit 0 22 Ro0FboXezl?WkQNX]c7El1
+!i122 18
+l29
+L28 16
+VSICX]<f:R0lXE0W=H;mG]1
+!s100 UcVgGZP@>WfLeHb=gEmk90
+R7
+32
+R35
+!i10b 1
+!i113 0
+R9
+R10
+Ehazard_detection
+Z36 w1795387409
+R3
+R4
+!i122 19
+R32
+Z37 8/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/hazard_detection.vhd
+Z38 F/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/hazard_detection.vhd
+l0
+L18 1
+VI<l2:gAO]eYCA_2YjDNhH3
+!s100 AX9CXo50[9V_cBGiW5MAN1
+R7
+32
+Z39 !s110 1795387416
+!i10b 1
+!i113 0
+R9
+R10
+Adataflow
+R3
+R4
+DEx4 work 16 hazard_detection 0 22 I<l2:gAO]eYCA_2YjDNhH3
+!i122 19
+l34
+L32 14
+VHBo8]g^WAZZbk_Ihll1L51
+!s100 91o7M>5?hjCP;eA128@n41
+R7
+32
+R39
+!i10b 1
+!i113 0
+R9
+R10
+Eimm_gen
+R18
+R3
+R4
+!i122 7
+R1
+Z40 8/home/gmh2005/cpre3810/2-Pipelined-RISC-V-Processors/cpre381m255
+K4
+z2
+!s8c locked
+!s11f vlog 2026.2 2026.05, May 18 2026
+!s11e vcom 2026.2 2026.05, May 18 2026
+!s95 MTI
+cModel Technology Builtin Library
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+d/bata/qbnr/buildsites/2026.p/builds/linux/modeltech
+/electrical_systems
+Z0 DPx4 ieee 9 math_real 0 22 gX5]bdK:=X>G2OzF9:A2j0
+Z1 DPx4 ieee 21 fundamental_constants 0 22 ZR5;S2^@0Gf31K>GbdPjD0
+35
+Z2 !s110 1779126996
+!i10b 1
+Z3 OL;C;2026.2;84
+!i122 14
+Z4 w1779126429
+Z5 d$QUESTASIM_DIR/..
+Z6 8vhdl_src/ieee/ieee_ams_context.vhd
+Z7 Fvhdl_src/ieee/ieee_ams_context.vhd
+l0
+L218 88
+Vg?XHkUFEGK<FiEz02jfga2
+!s100 g?XHkUFEGK<FiEz02jfga2
+Z8 OE;C;2026.2;84
+!i113 1
+Z9 o-suppress 15011 -debuglib -ams07 -work ieee -dirpath {$QUESTASIM_DIR/..} -nowarn 3
+Z10 tExplicit 1 CvgOpt 0
+/energy_systems
+R0
+R1
+35
+R2
+!i10b 1
+R3
+!i122 14
+R4
+R5
+R6
+R7
+l0
+L145 28
+V`1oa]EFkUH]k657ATPzi71
+!s100 `1oa]EFkUH]k657ATPzi71
+R8
+!i113 1
+R9
+R10
+Pfixed_float_types
+33
+Z11 !s110 1779126995
+!i10b 1
+R3
+!i122 8
+R4
+R5
+8vhdl_src/ieee/fixed_float_types.vhdl
+Fvhdl_src/ieee/fixed_float_types.vhdl
+l0
+L43 19
+Vj<WD5SZ6`I4KC;8P]h@_10
+!s100 j<WD5SZ6`I4KC;8P]h@_10
+R8
+!i113 1
+Z12 o-debuglib -2008 -work ieee -dirpath {$QUESTASIM_DIR/..} -nowarn 3
+R10
+Pfixed_generic_pkg
+Z13 DPx4 ieee 17 fixed_float_types 0 22 j<WD5SZ6`I4KC;8P]h@_10
+Z14 DPx4 ieee 11 numeric_std 0 22 m=kP7jRZW]kY;6MU;0z<22
+Z15 DPx4 ieee 14 std_logic_1164 0 22 TDbGXLH=YSoj9JRY2gkNY0
+Z16 DPx3 std 6 textio 0 22 <UlP6K1@RDQa_MJ[:UEnP2
+33
+b1
+!i109 1
+R11
+!i10b 1
+R3
+b1
+!i109 1
+!i122 9
+R4
+R5
+8vhdl_src/ieee/fixed_generic_pkg.vhdl
+Fvhdl_src/ieee/fixed_generic_pkg.vhdl
+l0
+L49 1417
+VWLhW>c;A5KzAo?lA3@gjJ1
+!s100 WLhW>c;A5KzAo?lA3@gjJ1
+R8
+b1
+!i109 1
+!i113 1
+R12
+R10
+Bbody
+DPx4 work 17 fixed_generic_pkg 0 22 WLhW>c;A5KzAo?lA3@gjJ1
+R0
+R13
+R14
+R15
+R16
+33
+!i109 1
+R11
+!i10b 1
+R3
+!i109 1
+!i122 9
+8vhdl_src/ieee/fixed_generic_pkg-body.vhdl
+Fvhdl_src/ieee/fixed_generic_pkg-body.vhdl
+l0
+L46 6325
+V]3k3M4<hVHOoT19ff?Yf[0
+!s100 ]3k3M4<hVHOoT19ff?Yf[0
+R8
+!i109 1
+!i113 1
+R12
+R10
+Pfixed_pkg
+R13
+R14
+R15
+R16
+Z17 DBx4 ieee 17 fixed_generic_pkg 4 body 22 ]3k3M4<hVHOoT19ff?Yf[0
+33
+!i109 2
+R11
+!i10b 1
+R3
+!i109 2
+!i122 10
+R4
+R5
+8vhdl_src/ieee/fixed_pkg.vhdl
+Fvhdl_src/ieee/fixed_pkg.vhdl
+l0
+Z18 L45 1
+VM^`[eC@i[F0R@5Nl1zB2G1
+!s100 M^`[eC@i[F0R@5Nl1zB2G1
+R8
+!i109 2
+!i113 1
+R12
+R10
+Pfloat_generic_pkg
+R17
+R13
+R14
+R15
+R16
+33
+b1
+!i109 1
+R11
+!i10b 1
+R3
+b1
+!i109 1
+!i122 11
+R4
+R5
+8vhdl_src/ieee/float_generic_pkg.vhdl
+Fvhdl_src/ieee/float_generic_pkg.vhdl
+l0
+L49 1200
+Vn5nHi9dYQ;k;Oi;Ff=G[42
+!s100 n5nHi9dYQ;k;Oi;Ff=G[42
+R8
+b1
+!i109 1
+!i113 1
+R12
+R10
+Bbody
+DPx4 work 17 float_generic_pkg 0 22 n5nHi9dYQ;k;Oi;Ff=G[42
+R17
+R13
+R14
+R15
+R16
+33
+!i109 1
+R2
+!i10b 1
+R3
+!i109 1
+!i122 11
+8vhdl_src/ieee/float_generic_pkg-body.vhdl
+Fvhdl_src/ieee/float_generic_pkg-body.vhdl
+l0
+L43 5673
+VA@<Ne1dh<mV=4iJCgEk[83
+!s100 A@<Ne1dh<mV=4iJCgEk[83
+R8
+!i109 1
+!i113 1
+R12
+R10
+Pfloat_pkg
+DPx4 ieee 9 fixed_pkg 0 22 M^`[eC@i[F0R@5Nl1zB2G1
+R17
+R13
+R14
+R15
+R16
+DBx4 ieee 17 float_generic_pkg 4 body 22 A@<Ne1dh<mV=4iJCgEk[83
+33
+!i109 2
+R2
+!i10b 1
+R3
+!i109 2
+!i122 12
+R4
+R5
+8vhdl_src/ieee/float_pkg.vhdl
+Fvhdl_src/ieee/float_pkg.vhdl
+l0
+R18
+VQ^K`oHjQf1=DTYo_?SNAf2
+!s100 Q^K`oHjQf1=DTYo_?SNAf2
+R8
+!i109 2
+!i113 1
+R12
+R10
+/fluidic_systems
+R0
+R1
+35
+R2
+!i10b 1
+R3
+!i122 14
+R4
+R5
+R6
+R7
+l0
+L662 84
+V[;lHOj7EJ6d8P^[`gFlPb0
+!s100 [;lHOj7EJ6d8P^[`gFlPb0
+R8
+!i113 1
+R9
+R10
+/fundamental_constants
+R0
+35
+R2
+!i10b 1
+R3
+!i122 14
+R4
+R5
+R6
+R7
+l0
+L56 46
+VZR5;S2^@0Gf31K>GbdPjD0
+!s100 ZR5;S2^@0Gf31K>GbdPjD0
+R8
+!i113 1
+R9
+R10
+^#ieee_bit_context
+33
+Z19 !s110 1779126998
+!i10b 0
+R3
+R4
+!i122 23
+R5
+8vhdl_src/ieee/ieee_bit_context.vhd
+Fvhdl_src/ieee/ieee_bit_context.vhd
+l0
+L1 1
+V8;nmf^<<Q;TXX7lB^BofF3
+!s100 8;nmf^<<Q;TXX7lB^BofF3
+R8
+!i113 1
+Z20 o-debuglib -2008 -work ieee -dirpath {$QUESTASIM_DIR/..}
+R10
+^#ieee_std_context
+33
+R19
+!i10b 0
+R3
+R4
+!i122 24
+R5
+8vhdl_src/ieee/ieee_std_context.vhd
+Fvhdl_src/ieee/ieee_std_context.vhd
+l0
+L1 1
+V7m;SE_P[R@HSc<;N29LfO0
+!s100 7m;SE_P[R@HSc<;N29LfO0
+R8
+!i113 1
+R20
+R10
+Pmath_complex
+R0
+33
+b1
+Z21 !s110 1779126994
+!i10b 1
+R3
+b1
+!i122 5
+R4
+R5
+Z22 8vhdl_src/ieee/1076-2code.vhd
+Z23 Fvhdl_src/ieee/1076-2code.vhd
+l0
+L677 1032
+Z24 V<iVULlNIQSE_Oal3GOF4;2
+!s100 <iVULlNIQSE_Oal3GOF4;2
+R8
+b1
+!i113 1
+Z25 o-debuglib -2008 -mixedsvvh -work ieee -dirpath {$QUESTASIM_DIR/..} -nowarn 3
+R10
+Bbody
+DPx4 work 12 math_complex 0 22 <iVULlNIQSE_Oal3GOF4;2
+R0
+33
+R21
+!i10b 1
+R3
+!i122 5
+l0
+L3695 1551
+VmjZCeZRfFCcnK8j_zZ9FD1
+!s100 mjZCeZRfFCcnK8j_zZ9FD1
+R8
+!i113 1
+R25
+R10
+XMATH_COMPLEX__mti__sv__equiv__implct__pack
+Z26 DXx6 sv_std 3 std 0 22 @5XbY]_OacJl=`ToSm<M^0
+R11
+R24
+r1
+!s85 0
+Z27 OL;L;2026.2;84
+R23
+I<iVULlNIQSE_Oal3GOF4;2
+!i10b 1
+!s100 G^<>09C`XFQDhz?dk^>k?3
+S1
+R5
+Z28 w1779126994
+8/bata/qbnr/buildsites/2026.p/builds/linux/modeltech/ieee/_data/exemptxyRO6I
+!i122 7
+Z29 L0 1 0
+Z30 OE;L;2026.2;84
+31
+!i113 1
+Z31 o-suppress 12110 -quiet -sv -work ieee -s -dirpath {$QUESTASIM_DIR/..} -internalacc -nolock -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z32 tCvgOpt 0
+n@m@a@t@h_@c@o@m@p@l@e@x__mti__sv__equiv__implct__pack
+Pmath_real
+33
+b1
+R21
+!i10b 1
+R3
+b1
+!i122 5
+R4
+R5
+R22
+R23
+l0
+L51 575
+Z33 VgX5]bdK:=X>G2OzF9:A2j0
+!s100 gX5]bdK:=X>G2OzF9:A2j0
+R8
+b1
+!i113 1
+R25
+R10
+Bbody
+DPx4 work 9 math_real 0 22 gX5]bdK:=X>G2OzF9:A2j0
+33
+R21
+!i10b 1
+R3
+!i122 5
+l0
+L1759 1884
+VC6]Y5K;BoHV3>c[V`@>Z02
+!s100 C6]Y5K;BoHV3>c[V`@>Z02
+R8
+!i113 1
+R25
+R10
+XMATH_REAL__mti__sv__equiv__implct__pack
+R26
+R11
+R33
+r1
+!s85 0
+R27
+R23
+IgX5]bdK:=X>G2OzF9:A2j0
+!i10b 1
+!s100 eZd;<nGJi48YI[hS;=3dS0
+S1
+R5
+R28
+8/bata/qbnr/buildsites/2026.p/builds/linux/modeltech/ieee/_data/exemptFHPqOi
+!i122 6
+R29
+R30
+31
+!i113 1
+R31
+R32
+n@m@a@t@h_@r@e@a@l__mti__sv__equiv__implct__pack
+/mechanical_systems
+R0
+R1
+35
+R2
+!i10b 1
+R3
+!i122 14
+R4
+R5
+R6
+R7
+l0
+L349 115
+V_F<D8EcD6`2^_l0aeiTm41
+!s100 _F<D8EcD6`2^_l0aeiTm41
+R8
+!i113 1
+R9
+R10
+Pnumeric_bit
+R16
+33
+b1
+R21
+!i10b 1
+R3
+b1
+!i122 1
+R4
+R5
+Z34 8vhdl_src/ieee/mti_numeric_bit.vhd
+Z35 Fvhdl_src/ieee/mti_numeric_bit.vhd
+l0
+L59 1967
+V=Q=?OZ=cEEe4;9Uk4I0Va0
+!s100 =Q=?OZ=cEEe4;9Uk4I0Va0
+R8
+b1
+!i113 1
+R12
+R10
+Bbody
+DPx4 work 11 numeric_bit 0 22 =Q=?OZ=cEEe4;9Uk4I0Va0
+R16
+33
+R21
+!i10b 1
+R3
+!i122 1
+l0
+L2079 2989
+VQB>i;:DBMe[APl04RS5cF3
+!s100 QB>i;:DBMe[APl04RS5cF3
+R8
+!i113 1
+R12
+R10
+Pnumeric_bit_unsigned
+33
+b1
+R21
+!i10b 1
+R3
+b1
+!i122 3
+R4
+R5
+Z36 8vhdl_src/ieee/mti_numeric_bit_unsigned.vhd
+Z37 Fvhdl_src/ieee/mti_numeric_bit_unsigned.vhd
+l0
+L53 732
+VfQPIgHhiDaHPI@GGmF4c92
+!s100 fQPIgHhiDaHPI@GGmF4c92
+R8
+b1
+!i113 1
+R12
+R10
+Bbody
+DPx4 work 20 numeric_bit_unsigned 0 22 fQPIgHhiDaHPI@GGmF4c92
+R16
+Z38 DPx4 ieee 11 numeric_bit 0 22 =Q=?OZ=cEEe4;9Uk4I0Va0
+33
+R21
+!i10b 1
+R3
+!i122 3
+l0
+L840 537
+VnVSD=ARbFJSQgci5YRnWT1
+!s100 nVSD=ARbFJSQgci5YRnWT1
+R8
+!i113 1
+R12
+R10
+Pnumeric_std
+R15
+R16
+33
+b1
+R21
+!i10b 1
+R3
+b1
+!i122 2
+R4
+R5
+Z39 8vhdl_src/ieee/mti_numeric_std.vhd
+Z40 Fvhdl_src/ieee/mti_numeric_std.vhd
+l0
+L69 2080
+Vm=kP7jRZW]kY;6MU;0z<22
+!s100 m=kP7jRZW]kY;6MU;0z<22
+R8
+b1
+!i113 1
+R12
+R10
+Bbody
+DPx4 work 11 numeric_std 0 22 m=kP7jRZW]kY;6MU;0z<22
+R15
+R16
+33
+R21
+!i10b 1
+R3
+!i122 2
+l0
+L2213 4026
+VZ5=?I2=j1]f2zDB3WTIQ21
+!s100 Z5=?I2=j1]f2zDB3WTIQ21
+R8
+!i113 1
+R12
+R10
+Pnumeric_std_unsigned
+R16
+R15
+33
+b1
+R21
+!i10b 1
+R3
+b1
+!i122 4
+R4
+R5
+Z41 8vhdl_src/ieee/mti_numeric_std_unsigned.vhd
+Z42 Fvhdl_src/ieee/mti_numeric_std_unsigned.vhd
+l0
+L55 719
+VL9z`>=>LNY9h8oAIomUKm3
+!s100 L9z`>=>LNY9h8oAIomUKm3
+R8
+b1
+!i113 1
+R12
+R10
+Bbody
+DPx4 work 20 numeric_std_unsigned 0 22 L9z`>=>LNY9h8oAIomUKm3
+R14
+R16
+R15
+33
+R21
+!i10b 1
+R3
+!i122 4
+l0
+L829 540
+VeOJ`:nc;DaI8h=UK0_jRL3
+!s100 eOJ`:nc;DaI8h=UK0_jRL3
+R8
+!i113 1
+R12
+R10
+/radiant_systems
+R0
+R1
+35
+R2
+!i10b 1
+R3
+!i122 14
+R4
+R5
+R6
+R7
+l0
+L507 29
+VIh@HH8zCVTWYiFhU25AaU0
+!s100 Ih@HH8zCVTWYiFhU25AaU0
+R8
+!i113 1
+R9
+R10
+Pstd_logic_1164
+R16
+33
+b1
+Z43 !s110 1779126993
+!i10b 1
+R3
+b1
+!i122 0
+d.
+Z44 8$QUESTASIM_DIR/../vhdl_src/ieee/stdlogic.vhd
+Z45 F$QUESTASIM_DIR/../vhdl_src/ieee/stdlogic.vhd
+l0
+L56 319
+VTDbGXLH=YSoj9JRY2gkNY0
+!s100 TDbGXLH=YSoj9JRY2gkNY0
+R8
+b1
+!i113 1
+Z46 o-debuglib -2008 -path {$QUESTASIM_DIR/../vhdl_src/ieee/stdlogic.vhd} -work ieee -dirpath {$QUESTASIM_DIR/..} -nowarn 3
+R10
+Bbody
+DPx4 work 14 std_logic_1164 0 22 TDbGXLH=YSoj9JRY2gkNY0
+R16
+33
+R43
+!i10b 1
+R3
+!i122 0
+l0
+L428 2020
+Vl04?HlDW[2l8B>11U_C7h2
+!s100 l04?HlDW[2l8B>11U_C7h2
+R8
+!i113 1
+R46
+R10
+Pstd_logic_a

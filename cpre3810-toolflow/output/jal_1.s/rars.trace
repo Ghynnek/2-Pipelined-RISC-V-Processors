@@ -1,0 +1,13 @@
+[inst #1] jal x1,8
+Register Write to Reg: 0x01 Val: 0x00400004
+[inst #2] jal x2,8
+Register Write to Reg: 0x02 Val: 0x0040000C
+[inst #3] jal x3,8
+Register Write to Reg: 0x03 Val: 0x00400014
+[inst #4] jal x4,8
+Register Write to Reg: 0x04 Val: 0x0040001C
+[inst #5] jal x5,12
+Register Write to Reg: 0x05 Val: 0x00400024
+[inst #6] wfi 
+
+Program terminated by dropping off the bottom.

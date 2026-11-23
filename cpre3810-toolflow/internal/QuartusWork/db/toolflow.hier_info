@@ -1,7 +1,7 @@
 |RISCV_Processor
 iCLK => mem:IMem.clk
 iCLK => mem:DMem.clk
-iCLK => fetch_logic_sw:U_FETCH.clk
+iCLK => fetch_logic_hw:U_FETCH.clk
 iCLK => reg_IF_ID:U_IF_ID.i_clk
 iCLK => reg_file:U_REGFILE.i_clk
 iCLK => reg_ID_EX:U_ID_EX.i_clk
@@ -262992,7 +262992,7 @@ q[30] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 q[31] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH
+|RISCV_Processor|fetch_logic_hw:U_FETCH
 clk => dffg:G_PC:0:G_CLR:PC_FF.i_CLK
 clk => dffg:G_PC:1:G_CLR:PC_FF.i_CLK
 clk => dffg:G_PC:2:G_CLR:PC_FF.i_CLK
@@ -263223,6 +263223,7 @@ JumpReg => Mux29.IN4
 JumpReg => Mux30.IN4
 JumpReg => Mux31.IN4
 JumpReg => pcsrc[0].OUTPUTSELECT
+JumpReg => Equal0.IN0
 pc[0] <= dffg:G_PC:0:G_CLR:PC_FF.o_Q
 pc[1] <= dffg:G_PC:1:G_CLR:PC_FF.o_Q
 pc[2] <= dffg:G_PC:2:G_CLR:PC_FF.o_Q
@@ -263287,9 +263288,42 @@ pc_plus4[28] <= Adder_N:PCADD4.o_S[28]
 pc_plus4[29] <= Adder_N:PCADD4.o_S[29]
 pc_plus4[30] <= Adder_N:PCADD4.o_S[30]
 pc_plus4[31] <= Adder_N:PCADD4.o_S[31]
+stall => dffg:G_PC:0:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:1:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:2:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:3:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:4:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:5:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:6:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:7:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:8:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:9:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:10:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:11:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:12:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:13:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:14:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:15:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:16:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:17:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:18:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:19:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:20:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:21:G_CLR:PC_FF.i_WE
+stall => dffg_set:G_PC:22:G_set:pc_FF_SET.i_WE
+stall => dffg:G_PC:23:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:24:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:25:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:26:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:27:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:28:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:29:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:30:G_CLR:PC_FF.i_WE
+stall => dffg:G_PC:31:G_CLR:PC_FF.i_WE
+redirect <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4
 i_A[0] => FullAdder:G_NBit_ADD:0:FAI.i_A
 i_A[1] => FullAdder:G_NBit_ADD:1:FAI.i_A
 i_A[2] => FullAdder:G_NBit_ADD:2:FAI.i_A
@@ -263390,7 +263424,7 @@ o_S[31] <= FullAdder:G_NBit_ADD:31:FAI.o_S
 o_Cout <= FullAdder:G_NBit_ADD:31:FAI.o_C
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263401,37 +263435,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:0:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263442,37 +263476,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:1:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263483,37 +263517,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:2:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263524,37 +263558,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:3:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263565,37 +263599,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:4:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263606,37 +263640,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:5:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263647,37 +263681,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:6:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263688,37 +263722,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:7:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263729,37 +263763,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:8:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263770,37 +263804,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:9:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263811,37 +263845,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:10:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263852,37 +263886,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:11:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263893,37 +263927,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:12:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263934,37 +263968,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:13:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -263975,37 +264009,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:14:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264016,37 +264050,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:15:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264057,37 +264091,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:16:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264098,37 +264132,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:17:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264139,37 +264173,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:18:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264180,37 +264214,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:19:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264221,37 +264255,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:20:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264262,37 +264296,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:21:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264303,37 +264337,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:22:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264344,37 +264378,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:23:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264385,37 +264419,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:24:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264426,37 +264460,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:25:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264467,37 +264501,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:26:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264508,37 +264542,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:27:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264549,37 +264583,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:28:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264590,37 +264624,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:29:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264631,37 +264665,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:30:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264672,37 +264706,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADD4|FullAdder:\G_NBit_ADD:31:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM
 i_A[0] => FullAdder:G_NBit_ADD:0:FAI.i_A
 i_A[1] => FullAdder:G_NBit_ADD:1:FAI.i_A
 i_A[2] => FullAdder:G_NBit_ADD:2:FAI.i_A
@@ -264803,7 +264837,7 @@ o_S[31] <= FullAdder:G_NBit_ADD:31:FAI.o_S
 o_Cout <= FullAdder:G_NBit_ADD:31:FAI.o_C
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264814,37 +264848,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:0:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264855,37 +264889,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:1:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264896,37 +264930,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:2:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264937,37 +264971,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:3:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -264978,37 +265012,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:4:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265019,37 +265053,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:5:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265060,37 +265094,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:6:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265101,37 +265135,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:7:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265142,37 +265176,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:8:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265183,37 +265217,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:9:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265224,37 +265258,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:10:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265265,37 +265299,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:11:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265306,37 +265340,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:12:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265347,37 +265381,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:13:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265388,37 +265422,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:14:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265429,37 +265463,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:15:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265470,37 +265504,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:16:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265511,37 +265545,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:17:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265552,37 +265586,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:18:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265593,37 +265627,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:19:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265634,37 +265668,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:20:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265675,37 +265709,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:21:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265716,37 +265750,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:22:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265757,37 +265791,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:23:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265798,37 +265832,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:24:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265839,37 +265873,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:25:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265880,37 +265914,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:26:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265921,37 +265955,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:27:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -265962,37 +265996,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:28:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -266003,37 +266037,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:29:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -266044,37 +266078,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:30:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI
 i_A => xorg2:G_XOR0.i_A
 i_A => andg2:G_AND0.i_A
 i_B => xorg2:G_XOR0.i_B
@@ -266085,37 +266119,37 @@ o_S <= xorg2:G_XOR1.o_F
 o_C <= org2:G_OR0.o_F
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI|xorg2:G_XOR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI|xorg2:G_XOR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI|xorg2:G_XOR1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI|xorg2:G_XOR1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI|andg2:G_AND0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI|andg2:G_AND0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI|andg2:G_AND1
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI|andg2:G_AND1
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI|org2:G_OR0
+|RISCV_Processor|fetch_logic_hw:U_FETCH|Adder_N:PCADDIMM|FullAdder:\G_NBit_ADD:31:FAI|org2:G_OR0
 i_A => o_F.IN0
 i_B => o_F.IN1
 o_F <= o_F.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:0:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:0:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266123,7 +266157,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:1:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:1:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266131,7 +266165,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:2:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:2:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266139,7 +266173,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:3:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:3:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266147,7 +266181,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:4:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:4:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266155,7 +266189,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:5:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:5:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266163,7 +266197,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:6:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:6:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266171,7 +266205,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:7:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:7:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266179,7 +266213,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:8:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:8:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266187,7 +266221,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:9:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:9:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266195,7 +266229,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:10:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:10:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266203,7 +266237,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:11:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:11:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266211,7 +266245,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:12:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:12:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266219,7 +266253,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:13:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:13:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266227,7 +266261,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:14:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:14:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266235,7 +266269,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:15:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:15:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266243,7 +266277,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:16:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:16:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266251,7 +266285,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:17:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:17:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266259,7 +266293,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:18:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:18:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266267,7 +266301,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:19:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:19:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266275,7 +266309,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:20:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:20:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266283,7 +266317,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:21:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:21:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266291,7 +266325,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg_set:\G_PC:22:G_set:pc_FF_SET
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg_set:\G_PC:22:G_set:pc_FF_SET
 i_CLK => s_Q.CLK
 i_RST => s_Q.PRESET
 i_WE => s_Q.ENA
@@ -266299,7 +266333,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:23:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:23:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266307,7 +266341,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:24:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:24:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266315,7 +266349,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:25:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:25:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266323,7 +266357,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:26:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:26:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266331,7 +266365,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:27:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:27:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266339,7 +266373,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:28:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:28:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266347,7 +266381,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:29:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:29:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266355,7 +266389,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:30:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:30:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -266363,7 +266397,7 @@ i_D => s_Q.DATAIN
 o_Q <= s_Q.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|RISCV_Processor|fetch_logic_sw:U_FETCH|dffg:\G_PC:31:G_CLR:PC_FF
+|RISCV_Processor|fetch_logic_hw:U_FETCH|dffg:\G_PC:31:G_CLR:PC_FF
 i_CLK => s_Q.CLK
 i_RST => s_Q.ACLR
 i_WE => s_Q.ENA
@@ -287109,6 +287143,556 @@ o_rd[1] <= r_rd[1].DB_MAX_OUTPUT_PORT_TYPE
 o_rd[2] <= r_rd[2].DB_MAX_OUTPUT_PORT_TYPE
 o_rd[3] <= r_rd[3].DB_MAX_OUTPUT_PORT_TYPE
 o_rd[4] <= r_rd[4].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RISCV_Processor|forwarding_unit:U_FWD
+i_ex_rs1[0] => Equal1.IN4
+i_ex_rs1[0] => Equal3.IN4
+i_ex_rs1[1] => Equal1.IN3
+i_ex_rs1[1] => Equal3.IN3
+i_ex_rs1[2] => Equal1.IN2
+i_ex_rs1[2] => Equal3.IN2
+i_ex_rs1[3] => Equal1.IN1
+i_ex_rs1[3] => Equal3.IN1
+i_ex_rs1[4] => Equal1.IN0
+i_ex_rs1[4] => Equal3.IN0
+i_ex_rs2[0] => Equal4.IN4
+i_ex_rs2[0] => Equal5.IN4
+i_ex_rs2[1] => Equal4.IN3
+i_ex_rs2[1] => Equal5.IN3
+i_ex_rs2[2] => Equal4.IN2
+i_ex_rs2[2] => Equal5.IN2
+i_ex_rs2[3] => Equal4.IN1
+i_ex_rs2[3] => Equal5.IN1
+i_ex_rs2[4] => Equal4.IN0
+i_ex_rs2[4] => Equal5.IN0
+i_mem_rd[0] => Equal3.IN9
+i_mem_rd[0] => Equal5.IN9
+i_mem_rd[0] => Equal2.IN4
+i_mem_rd[1] => Equal3.IN8
+i_mem_rd[1] => Equal5.IN8
+i_mem_rd[1] => Equal2.IN3
+i_mem_rd[2] => Equal3.IN7
+i_mem_rd[2] => Equal5.IN7
+i_mem_rd[2] => Equal2.IN2
+i_mem_rd[3] => Equal3.IN6
+i_mem_rd[3] => Equal5.IN6
+i_mem_rd[3] => Equal2.IN1
+i_mem_rd[4] => Equal3.IN5
+i_mem_rd[4] => Equal5.IN5
+i_mem_rd[4] => Equal2.IN0
+i_mem_reg_write => o_fwd_a.IN1
+i_wb_rd[0] => Equal1.IN9
+i_wb_rd[0] => Equal4.IN9
+i_wb_rd[0] => Equal0.IN4
+i_wb_rd[1] => Equal1.IN8
+i_wb_rd[1] => Equal4.IN8
+i_wb_rd[1] => Equal0.IN3
+i_wb_rd[2] => Equal1.IN7
+i_wb_rd[2] => Equal4.IN7
+i_wb_rd[2] => Equal0.IN2
+i_wb_rd[3] => Equal1.IN6
+i_wb_rd[3] => Equal4.IN6
+i_wb_rd[3] => Equal0.IN1
+i_wb_rd[4] => Equal1.IN5
+i_wb_rd[4] => Equal4.IN5
+i_wb_rd[4] => Equal0.IN0
+i_wb_reg_write => o_fwd_a.IN1
+o_fwd_a[0] <= o_fwd_a.DB_MAX_OUTPUT_PORT_TYPE
+o_fwd_a[1] <= o_fwd_a.DB_MAX_OUTPUT_PORT_TYPE
+o_fwd_b[0] <= o_fwd_b.DB_MAX_OUTPUT_PORT_TYPE
+o_fwd_b[1] <= o_fwd_b.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RISCV_Processor|hazard_detection:U_HAZARD
+i_id_rs1[0] => Equal1.IN4
+i_id_rs1[1] => Equal1.IN3
+i_id_rs1[2] => Equal1.IN2
+i_id_rs1[3] => Equal1.IN1
+i_id_rs1[4] => Equal1.IN0
+i_id_rs2[0] => Equal2.IN4
+i_id_rs2[1] => Equal2.IN3
+i_id_rs2[2] => Equal2.IN2
+i_id_rs2[3] => Equal2.IN1
+i_id_rs2[4] => Equal2.IN0
+i_ex_rd[0] => Equal1.IN9
+i_ex_rd[0] => Equal2.IN9
+i_ex_rd[0] => Equal0.IN4
+i_ex_rd[1] => Equal1.IN8
+i_ex_rd[1] => Equal2.IN8
+i_ex_rd[1] => Equal0.IN3
+i_ex_rd[2] => Equal1.IN7
+i_ex_rd[2] => Equal2.IN7
+i_ex_rd[2] => Equal0.IN2
+i_ex_rd[3] => Equal1.IN6
+i_ex_rd[3] => Equal2.IN6
+i_ex_rd[3] => Equal0.IN1
+i_ex_rd[4] => Equal1.IN5
+i_ex_rd[4] => Equal2.IN5
+i_ex_rd[4] => Equal0.IN0
+i_ex_mem_read => s_load_use.IN1
+i_pc_redirect => o_idex_flush.IN1
+i_pc_redirect => o_ifid_flush.DATAIN
+i_pc_redirect => o_pc_stall.IN1
+i_pc_redirect => o_ifid_stall.IN1
+o_pc_stall <= o_pc_stall.DB_MAX_OUTPUT_PORT_TYPE
+o_ifid_stall <= o_ifid_stall.DB_MAX_OUTPUT_PORT_TYPE
+o_ifid_flush <= i_pc_redirect.DB_MAX_OUTPUT_PORT_TYPE
+o_idex_flush <= o_idex_flush.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RISCV_Processor|mux4_32:U_FWDA
+d0[0] => Mux31.IN0
+d0[1] => Mux30.IN0
+d0[2] => Mux29.IN0
+d0[3] => Mux28.IN0
+d0[4] => Mux27.IN0
+d0[5] => Mux26.IN0
+d0[6] => Mux25.IN0
+d0[7] => Mux24.IN0
+d0[8] => Mux23.IN0
+d0[9] => Mux22.IN0
+d0[10] => Mux21.IN0
+d0[11] => Mux20.IN0
+d0[12] => Mux19.IN0
+d0[13] => Mux18.IN0
+d0[14] => Mux17.IN0
+d0[15] => Mux16.IN0
+d0[16] => Mux15.IN0
+d0[17] => Mux14.IN0
+d0[18] => Mux13.IN0
+d0[19] => Mux12.IN0
+d0[20] => Mux11.IN0
+d0[21] => Mux10.IN0
+d0[22] => Mux9.IN0
+d0[23] => Mux8.IN0
+d0[24] => Mux7.IN0
+d0[25] => Mux6.IN0
+d0[26] => Mux5.IN0
+d0[27] => Mux4.IN0
+d0[28] => Mux3.IN0
+d0[29] => Mux2.IN0
+d0[30] => Mux1.IN0
+d0[31] => Mux0.IN0
+d1[0] => Mux31.IN1
+d1[1] => Mux30.IN1
+d1[2] => Mux29.IN1
+d1[3] => Mux28.IN1
+d1[4] => Mux27.IN1
+d1[5] => Mux26.IN1
+d1[6] => Mux25.IN1
+d1[7] => Mux24.IN1
+d1[8] => Mux23.IN1
+d1[9] => Mux22.IN1
+d1[10] => Mux21.IN1
+d1[11] => Mux20.IN1
+d1[12] => Mux19.IN1
+d1[13] => Mux18.IN1
+d1[14] => Mux17.IN1
+d1[15] => Mux16.IN1
+d1[16] => Mux15.IN1
+d1[17] => Mux14.IN1
+d1[18] => Mux13.IN1
+d1[19] => Mux12.IN1
+d1[20] => Mux11.IN1
+d1[21] => Mux10.IN1
+d1[22] => Mux9.IN1
+d1[23] => Mux8.IN1
+d1[24] => Mux7.IN1
+d1[25] => Mux6.IN1
+d1[26] => Mux5.IN1
+d1[27] => Mux4.IN1
+d1[28] => Mux3.IN1
+d1[29] => Mux2.IN1
+d1[30] => Mux1.IN1
+d1[31] => Mux0.IN1
+d2[0] => Mux31.IN2
+d2[1] => Mux30.IN2
+d2[2] => Mux29.IN2
+d2[3] => Mux28.IN2
+d2[4] => Mux27.IN2
+d2[5] => Mux26.IN2
+d2[6] => Mux25.IN2
+d2[7] => Mux24.IN2
+d2[8] => Mux23.IN2
+d2[9] => Mux22.IN2
+d2[10] => Mux21.IN2
+d2[11] => Mux20.IN2
+d2[12] => Mux19.IN2
+d2[13] => Mux18.IN2
+d2[14] => Mux17.IN2
+d2[15] => Mux16.IN2
+d2[16] => Mux15.IN2
+d2[17] => Mux14.IN2
+d2[18] => Mux13.IN2
+d2[19] => Mux12.IN2
+d2[20] => Mux11.IN2
+d2[21] => Mux10.IN2
+d2[22] => Mux9.IN2
+d2[23] => Mux8.IN2
+d2[24] => Mux7.IN2
+d2[25] => Mux6.IN2
+d2[26] => Mux5.IN2
+d2[27] => Mux4.IN2
+d2[28] => Mux3.IN2
+d2[29] => Mux2.IN2
+d2[30] => Mux1.IN2
+d2[31] => Mux0.IN2
+d3[0] => Mux31.IN3
+d3[1] => Mux30.IN3
+d3[2] => Mux29.IN3
+d3[3] => Mux28.IN3
+d3[4] => Mux27.IN3
+d3[5] => Mux26.IN3
+d3[6] => Mux25.IN3
+d3[7] => Mux24.IN3
+d3[8] => Mux23.IN3
+d3[9] => Mux22.IN3
+d3[10] => Mux21.IN3
+d3[11] => Mux20.IN3
+d3[12] => Mux19.IN3
+d3[13] => Mux18.IN3
+d3[14] => Mux17.IN3
+d3[15] => Mux16.IN3
+d3[16] => Mux15.IN3
+d3[17] => Mux14.IN3
+d3[18] => Mux13.IN3
+d3[19] => Mux12.IN3
+d3[20] => Mux11.IN3
+d3[21] => Mux10.IN3
+d3[22] => Mux9.IN3
+d3[23] => Mux8.IN3
+d3[24] => Mux7.IN3
+d3[25] => Mux6.IN3
+d3[26] => Mux5.IN3
+d3[27] => Mux4.IN3
+d3[28] => Mux3.IN3
+d3[29] => Mux2.IN3
+d3[30] => Mux1.IN3
+d3[31] => Mux0.IN3
+s[0] => Mux0.IN5
+s[0] => Mux1.IN5
+s[0] => Mux2.IN5
+s[0] => Mux3.IN5
+s[0] => Mux4.IN5
+s[0] => Mux5.IN5
+s[0] => Mux6.IN5
+s[0] => Mux7.IN5
+s[0] => Mux8.IN5
+s[0] => Mux9.IN5
+s[0] => Mux10.IN5
+s[0] => Mux11.IN5
+s[0] => Mux12.IN5
+s[0] => Mux13.IN5
+s[0] => Mux14.IN5
+s[0] => Mux15.IN5
+s[0] => Mux16.IN5
+s[0] => Mux17.IN5
+s[0] => Mux18.IN5
+s[0] => Mux19.IN5
+s[0] => Mux20.IN5
+s[0] => Mux21.IN5
+s[0] => Mux22.IN5
+s[0] => Mux23.IN5
+s[0] => Mux24.IN5
+s[0] => Mux25.IN5
+s[0] => Mux26.IN5
+s[0] => Mux27.IN5
+s[0] => Mux28.IN5
+s[0] => Mux29.IN5
+s[0] => Mux30.IN5
+s[0] => Mux31.IN5
+s[1] => Mux0.IN4
+s[1] => Mux1.IN4
+s[1] => Mux2.IN4
+s[1] => Mux3.IN4
+s[1] => Mux4.IN4
+s[1] => Mux5.IN4
+s[1] => Mux6.IN4
+s[1] => Mux7.IN4
+s[1] => Mux8.IN4
+s[1] => Mux9.IN4
+s[1] => Mux10.IN4
+s[1] => Mux11.IN4
+s[1] => Mux12.IN4
+s[1] => Mux13.IN4
+s[1] => Mux14.IN4
+s[1] => Mux15.IN4
+s[1] => Mux16.IN4
+s[1] => Mux17.IN4
+s[1] => Mux18.IN4
+s[1] => Mux19.IN4
+s[1] => Mux20.IN4
+s[1] => Mux21.IN4
+s[1] => Mux22.IN4
+s[1] => Mux23.IN4
+s[1] => Mux24.IN4
+s[1] => Mux25.IN4
+s[1] => Mux26.IN4
+s[1] => Mux27.IN4
+s[1] => Mux28.IN4
+s[1] => Mux29.IN4
+s[1] => Mux30.IN4
+s[1] => Mux31.IN4
+y[0] <= Mux31.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= Mux30.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= Mux29.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= Mux28.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= Mux27.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= Mux26.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= Mux25.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= Mux24.DB_MAX_OUTPUT_PORT_TYPE
+y[8] <= Mux23.DB_MAX_OUTPUT_PORT_TYPE
+y[9] <= Mux22.DB_MAX_OUTPUT_PORT_TYPE
+y[10] <= Mux21.DB_MAX_OUTPUT_PORT_TYPE
+y[11] <= Mux20.DB_MAX_OUTPUT_PORT_TYPE
+y[12] <= Mux19.DB_MAX_OUTPUT_PORT_TYPE
+y[13] <= Mux18.DB_MAX_OUTPUT_PORT_TYPE
+y[14] <= Mux17.DB_MAX_OUTPUT_PORT_TYPE
+y[15] <= Mux16.DB_MAX_OUTPUT_PORT_TYPE
+y[16] <= Mux15.DB_MAX_OUTPUT_PORT_TYPE
+y[17] <= Mux14.DB_MAX_OUTPUT_PORT_TYPE
+y[18] <= Mux13.DB_MAX_OUTPUT_PORT_TYPE
+y[19] <= Mux12.DB_MAX_OUTPUT_PORT_TYPE
+y[20] <= Mux11.DB_MAX_OUTPUT_PORT_TYPE
+y[21] <= Mux10.DB_MAX_OUTPUT_PORT_TYPE
+y[22] <= Mux9.DB_MAX_OUTPUT_PORT_TYPE
+y[23] <= Mux8.DB_MAX_OUTPUT_PORT_TYPE
+y[24] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+y[25] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+y[26] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+y[27] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+y[28] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+y[29] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+y[30] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+y[31] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|RISCV_Processor|mux4_32:U_FWDB
+d0[0] => Mux31.IN0
+d0[1] => Mux30.IN0
+d0[2] => Mux29.IN0
+d0[3] => Mux28.IN0
+d0[4] => Mux27.IN0
+d0[5] => Mux26.IN0
+d0[6] => Mux25.IN0
+d0[7] => Mux24.IN0
+d0[8] => Mux23.IN0
+d0[9] => Mux22.IN0
+d0[10] => Mux21.IN0
+d0[11] => Mux20.IN0
+d0[12] => Mux19.IN0
+d0[13] => Mux18.IN0
+d0[14] => Mux17.IN0
+d0[15] => Mux16.IN0
+d0[16] => Mux15.IN0
+d0[17] => Mux14.IN0
+d0[18] => Mux13.IN0
+d0[19] => Mux12.IN0
+d0[20] => Mux11.IN0
+d0[21] => Mux10.IN0
+d0[22] => Mux9.IN0
+d0[23] => Mux8.IN0
+d0[24] => Mux7.IN0
+d0[25] => Mux6.IN0
+d0[26] => Mux5.IN0
+d0[27] => Mux4.IN0
+d0[28] => Mux3.IN0
+d0[29] => Mux2.IN0
+d0[30] => Mux1.IN0
+d0[31] => Mux0.IN0
+d1[0] => Mux31.IN1
+d1[1] => Mux30.IN1
+d1[2] => Mux29.IN1
+d1[3] => Mux28.IN1
+d1[4] => Mux27.IN1
+d1[5] => Mux26.IN1
+d1[6] => Mux25.IN1
+d1[7] => Mux24.IN1
+d1[8] => Mux23.IN1
+d1[9] => Mux22.IN1
+d1[10] => Mux21.IN1
+d1[11] => Mux20.IN1
+d1[12] => Mux19.IN1
+d1[13] => Mux18.IN1
+d1[14] => Mux17.IN1
+d1[15] => Mux16.IN1
+d1[16] => Mux15.IN1
+d1[17] => Mux14.IN1
+d1[18] => Mux13.IN1
+d1[19] => Mux12.IN1
+d1[20] => Mux11.IN1
+d1[21] => Mux10.IN1
+d1[22] => Mux9.IN1
+d1[23] => Mux8.IN1
+d1[24] => Mux7.IN1
+d1[25] => Mux6.IN1
+d1[26] => Mux5.IN1
+d1[27] => Mux4.IN1
+d1[28] => Mux3.IN1
+d1[29] => Mux2.IN1
+d1[30] => Mux1.IN1
+d1[31] => Mux0.IN1
+d2[0] => Mux31.IN2
+d2[1] => Mux30.IN2
+d2[2] => Mux29.IN2
+d2[3] => Mux28.IN2
+d2[4] => Mux27.IN2
+d2[5] => Mux26.IN2
+d2[6] => Mux25.IN2
+d2[7] => Mux24.IN2
+d2[8] => Mux23.IN2
+d2[9] => Mux22.IN2
+d2[10] => Mux21.IN2
+d2[11] => Mux20.IN2
+d2[12] => Mux19.IN2
+d2[13] => Mux18.IN2
+d2[14] => Mux17.IN2
+d2[15] => Mux16.IN2
+d2[16] => Mux15.IN2
+d2[17] => Mux14.IN2
+d2[18] => Mux13.IN2
+d2[19] => Mux12.IN2
+d2[20] => Mux11.IN2
+d2[21] => Mux10.IN2
+d2[22] => Mux9.IN2
+d2[23] => Mux8.IN2
+d2[24] => Mux7.IN2
+d2[25] => Mux6.IN2
+d2[26] => Mux5.IN2
+d2[27] => Mux4.IN2
+d2[28] => Mux3.IN2
+d2[29] => Mux2.IN2
+d2[30] => Mux1.IN2
+d2[31] => Mux0.IN2
+d3[0] => Mux31.IN3
+d3[1] => Mux30.IN3
+d3[2] => Mux29.IN3
+d3[3] => Mux28.IN3
+d3[4] => Mux27.IN3
+d3[5] => Mux26.IN3
+d3[6] => Mux25.IN3
+d3[7] => Mux24.IN3
+d3[8] => Mux23.IN3
+d3[9] => Mux22.IN3
+d3[10] => Mux21.IN3
+d3[11] => Mux20.IN3
+d3[12] => Mux19.IN3
+d3[13] => Mux18.IN3
+d3[14] => Mux17.IN3
+d3[15] => Mux16.IN3
+d3[16] => Mux15.IN3
+d3[17] => Mux14.IN3
+d3[18] => Mux13.IN3
+d3[19] => Mux12.IN3
+d3[20] => Mux11.IN3
+d3[21] => Mux10.IN3
+d3[22] => Mux9.IN3
+d3[23] => Mux8.IN3
+d3[24] => Mux7.IN3
+d3[25] => Mux6.IN3
+d3[26] => Mux5.IN3
+d3[27] => Mux4.IN3
+d3[28] => Mux3.IN3
+d3[29] => Mux2.IN3
+d3[30] => Mux1.IN3
+d3[31] => Mux0.IN3
+s[0] => Mux0.IN5
+s[0] => Mux1.IN5
+s[0] => Mux2.IN5
+s[0] => Mux3.IN5
+s[0] => Mux4.IN5
+s[0] => Mux5.IN5
+s[0] => Mux6.IN5
+s[0] => Mux7.IN5
+s[0] => Mux8.IN5
+s[0] => Mux9.IN5
+s[0] => Mux10.IN5
+s[0] => Mux11.IN5
+s[0] => Mux12.IN5
+s[0] => Mux13.IN5
+s[0] => Mux14.IN5
+s[0] => Mux15.IN5
+s[0] => Mux16.IN5
+s[0] => Mux17.IN5
+s[0] => Mux18.IN5
+s[0] => Mux19.IN5
+s[0] => Mux20.IN5
+s[0] => Mux21.IN5
+s[0] => Mux22.IN5
+s[0] => Mux23.IN5
+s[0] => Mux24.IN5
+s[0] => Mux25.IN5
+s[0] => Mux26.IN5
+s[0] => Mux27.IN5
+s[0] => Mux28.IN5
+s[0] => Mux29.IN5
+s[0] => Mux30.IN5
+s[0] => Mux31.IN5
+s[1] => Mux0.IN4
+s[1] => Mux1.IN4
+s[1] => Mux2.IN4
+s[1] => Mux3.IN4
+s[1] => Mux4.IN4
+s[1] => Mux5.IN4
+s[1] => Mux6.IN4
+s[1] => Mux7.IN4
+s[1] => Mux8.IN4
+s[1] => Mux9.IN4
+s[1] => Mux10.IN4
+s[1] => Mux11.IN4
+s[1] => Mux12.IN4
+s[1] => Mux13.IN4
+s[1] => Mux14.IN4
+s[1] => Mux15.IN4
+s[1] => Mux16.IN4
+s[1] => Mux17.IN4
+s[1] => Mux18.IN4
+s[1] => Mux19.IN4
+s[1] => Mux20.IN4
+s[1] => Mux21.IN4
+s[1] => Mux22.IN4
+s[1] => Mux23.IN4
+s[1] => Mux24.IN4
+s[1] => Mux25.IN4
+s[1] => Mux26.IN4
+s[1] => Mux27.IN4
+s[1] => Mux28.IN4
+s[1] => Mux29.IN4
+s[1] => Mux30.IN4
+s[1] => Mux31.IN4
+y[0] <= Mux31.DB_MAX_OUTPUT_PORT_TYPE
+y[1] <= Mux30.DB_MAX_OUTPUT_PORT_TYPE
+y[2] <= Mux29.DB_MAX_OUTPUT_PORT_TYPE
+y[3] <= Mux28.DB_MAX_OUTPUT_PORT_TYPE
+y[4] <= Mux27.DB_MAX_OUTPUT_PORT_TYPE
+y[5] <= Mux26.DB_MAX_OUTPUT_PORT_TYPE
+y[6] <= Mux25.DB_MAX_OUTPUT_PORT_TYPE
+y[7] <= Mux24.DB_MAX_OUTPUT_PORT_TYPE
+y[8] <= Mux23.DB_MAX_OUTPUT_PORT_TYPE
+y[9] <= Mux22.DB_MAX_OUTPUT_PORT_TYPE
+y[10] <= Mux21.DB_MAX_OUTPUT_PORT_TYPE
+y[11] <= Mux20.DB_MAX_OUTPUT_PORT_TYPE
+y[12] <= Mux19.DB_MAX_OUTPUT_PORT_TYPE
+y[13] <= Mux18.DB_MAX_OUTPUT_PORT_TYPE
+y[14] <= Mux17.DB_MAX_OUTPUT_PORT_TYPE
+y[15] <= Mux16.DB_MAX_OUTPUT_PORT_TYPE
+y[16] <= Mux15.DB_MAX_OUTPUT_PORT_TYPE
+y[17] <= Mux14.DB_MAX_OUTPUT_PORT_TYPE
+y[18] <= Mux13.DB_MAX_OUTPUT_PORT_TYPE
+y[19] <= Mux12.DB_MAX_OUTPUT_PORT_TYPE
+y[20] <= Mux11.DB_MAX_OUTPUT_PORT_TYPE
+y[21] <= Mux10.DB_MAX_OUTPUT_PORT_TYPE
+y[22] <= Mux9.DB_MAX_OUTPUT_PORT_TYPE
+y[23] <= Mux8.DB_MAX_OUTPUT_PORT_TYPE
+y[24] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+y[25] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+y[26] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+y[27] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+y[28] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+y[29] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+y[30] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+y[31] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |RISCV_Processor|mux2_32:U_ALUA

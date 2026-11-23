@@ -1,0 +1,65 @@
+[inst #1] auipc x1,0
+Register Write to Reg: 0x01 Val: 0x00400000
+[inst #2] auipc x2,0
+Register Write to Reg: 0x02 Val: 0x00400004
+[inst #3] auipc x3,0
+Register Write to Reg: 0x03 Val: 0x00400008
+[inst #4] auipc x4,0
+Register Write to Reg: 0x04 Val: 0x0040000C
+[inst #5] auipc x5,0
+Register Write to Reg: 0x05 Val: 0x00400010
+[inst #6] auipc x6,0
+Register Write to Reg: 0x06 Val: 0x00400014
+[inst #7] auipc x7,0
+Register Write to Reg: 0x07 Val: 0x00400018
+[inst #8] auipc x8,0
+Register Write to Reg: 0x08 Val: 0x0040001C
+[inst #9] auipc x9,0
+Register Write to Reg: 0x09 Val: 0x00400020
+[inst #10] auipc x10,0
+Register Write to Reg: 0x0A Val: 0x00400024
+[inst #11] auipc x11,0
+Register Write to Reg: 0x0B Val: 0x00400028
+[inst #12] auipc x12,0
+Register Write to Reg: 0x0C Val: 0x0040002C
+[inst #13] auipc x13,0
+Register Write to Reg: 0x0D Val: 0x00400030
+[inst #14] auipc x14,0
+Register Write to Reg: 0x0E Val: 0x00400034
+[inst #15] auipc x15,0
+Register Write to Reg: 0x0F Val: 0x00400038
+[inst #16] auipc x16,0
+Register Write to Reg: 0x10 Val: 0x0040003C
+[inst #17] auipc x17,0
+Register Write to Reg: 0x11 Val: 0x00400040
+[inst #18] auipc x18,0
+Register Write to Reg: 0x12 Val: 0x00400044
+[inst #19] auipc x19,0
+Register Write to Reg: 0x13 Val: 0x00400048
+[inst #20] auipc x20,0
+Register Write to Reg: 0x14 Val: 0x0040004C
+[inst #21] auipc x21,0
+Register Write to Reg: 0x15 Val: 0x00400050
+[inst #22] auipc x22,0
+Register Write to Reg: 0x16 Val: 0x00400054
+[inst #23] auipc x23,0
+Register Write to Reg: 0x17 Val: 0x00400058
+[inst #24] auipc x24,0
+Register Write to Reg: 0x18 Val: 0x0040005C
+[inst #25] auipc x25,0
+Register Write to Reg: 0x19 Val: 0x00400060
+[inst #26] auipc x26,0
+Register Write to Reg: 0x1A Val: 0x00400064
+[inst #27] auipc x27,0
+Register Write to Reg: 0x1B Val: 0x00400068
+[inst #28] auipc x28,0
+Register Write to Reg: 0x1C Val: 0x0040006C
+[inst #29] auipc x29,0
+Register Write to Reg: 0x1D Val: 0x00400070
+[inst #30] auipc x30,0
+Register Write to Reg: 0x1E Val: 0x00400074
+[inst #31] auipc x31,0
+Register Write to Reg: 0x1F Val: 0x00400078
+[inst #32] wfi 
+
+Program terminated by dropping off the bottom.
