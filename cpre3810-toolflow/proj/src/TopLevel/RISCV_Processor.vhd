@@ -63,7 +63,7 @@ architecture structure of RISCV_Processor is
   -- =========================================================================
   -- Submodule Component Declarations
   -- =========================================================================
-  component fetch_logic_sw is
+  component fetch_logic_hw is
     port (
       clk, reset            : in  std_logic;
       branch_pc             : in std_logic_vector(31 downto 0);
@@ -73,7 +73,9 @@ architecture structure of RISCV_Processor is
       funct3                : in  std_logic_vector(2 downto 0);
       Branch, Jump, JumpReg : in  std_logic;
       pc                    : out std_logic_vector(31 downto 0);
-      pc_plus4              : out std_logic_vector(31 downto 0)
+      pc_plus4              : out std_logic_vector(31 downto 0);
+      stall                 : in  std_logic;
+      redirect              : out std_logic
     );
   end component;
 
@@ -133,6 +135,42 @@ architecture structure of RISCV_Processor is
       ALUControl : in  std_logic_vector(3 downto 0);
       result     : out std_logic_vector(31 downto 0);
       zero       : out std_logic
+    );
+  end component;
+   
+   component forwarding_unit is --new for hw
+    port (
+      i_ex_rs1        : in  std_logic_vector(4 downto 0);
+      i_ex_rs2        : in  std_logic_vector(4 downto 0);
+      i_mem_rd        : in  std_logic_vector(4 downto 0);
+      i_mem_reg_write : in  std_logic;
+      i_wb_rd         : in  std_logic_vector(4 downto 0);
+      i_wb_reg_write  : in  std_logic;
+      o_fwd_a         : out std_logic_vector(1 downto 0);
+      o_fwd_b         : out std_logic_vector(1 downto 0)
+    );
+  end component;
+  component hazard_detection is--new for hw
+    port (
+      i_id_rs1      : in  std_logic_vector(4 downto 0);
+      i_id_rs2      : in  std_logic_vector(4 downto 0);
+      i_ex_rd       : in  std_logic_vector(4 downto 0);
+      i_ex_mem_read : in  std_logic;
+      i_pc_redirect : in  std_logic;
+      o_pc_stall    : out std_logic;
+      o_ifid_stall  : out std_logic;
+      o_ifid_flush  : out std_logic;
+      o_idex_flush  : out std_logic
+    );
+  end component;
+ component mux4_32 --new for hw
+    port (
+      d0 : in  std_logic_vector(31 downto 0);
+      d1 : in  std_logic_vector(31 downto 0);
+      d2 : in  std_logic_vector(31 downto 0);
+      d3 : in  std_logic_vector(31 downto 0);
+      s  : in  std_logic_vector(1 downto 0);
+      y  : out std_logic_vector(31 downto 0)
     );
   end component;
 
@@ -313,7 +351,9 @@ signal d_auipc : std_logic;
 signal d_imm_src : std_logic_vector(2 downto 0);
 signal d_alu_ctrl : std_logic_vector(3 downto 0);
 signal d_reg_read1 : std_logic_vector(31 downto 0);
+signal d_rs1_val : std_logic_vector(31 downto 0); -- res1 value after bypass
 signal d_reg_read2 : std_logic_vector(31 downto 0);
+signal d_rs2_val : std_logic_vector(31 downto 0); -- res2 value after bypass
 signal d_imm : std_logic_vector(31 downto 0);
 signal d_halt : std_logic;
 signal e_reg_write : std_logic;
@@ -370,6 +410,18 @@ signal sb_be : std_logic_vector(3 downto 0);
 signal sh_be : std_logic_vector(3 downto 0);
 signal sb_data : std_logic_vector(31 downto 0);
 signal sh_data : std_logic_vector(31 downto 0);
+--new for hw
+signal x_fwd_a    : std_logic_vector(1 downto 0);   -- forwarding select for rs1
+signal x_fwd_b    : std_logic_vector(1 downto 0);   -- forwarding select for rs2
+signal x_rs1_val  : std_logic_vector(31 downto 0);  -- rs1 after forwarding
+signal x_rs2_val  : std_logic_vector(31 downto 0);  -- rs2 after forwarding
+signal m_fwd_data : std_logic_vector(31 downto 0);  -- MEM's result, ready to forward
+
+signal f_redirect   : std_logic;  -- from fetch: branch taken or jump
+signal h_pc_stall   : std_logic;  -- from hazard unit: hold the PC
+signal h_ifid_stall : std_logic;  -- from hazard unit: hold IF/ID
+signal h_ifid_flush : std_logic;  -- from hazard unit: clear IF/ID
+signal h_idex_flush : std_logic;  -- from hazard unit: clear ID/EX
 begin
 
   -- Five stages, rising-edge register file, NO forwarding/interlocks/flushes.
@@ -382,13 +434,24 @@ begin
     port map(iCLK, s_IMemAddr(11 downto 2), iInstExt, "1111", iInstLd, s_Inst);
   DMem: mem generic map(ADDR_WIDTH => ADDR_WIDTH, DATA_WIDTH => N)
     port map(iCLK, s_DMemAddr(11 downto 2), s_DMemData, s_DMemBE, s_DMemWr, s_DMemOut);
-  U_FETCH: fetch_logic_sw port map(
-    clk => iCLK, reset => s_reset, branch_pc => e_pc, imm => e_imm,
-    alu_result => x_alu_result, zero => x_zero, funct3 => e_funct3,
-    Branch => e_branch, Jump => e_jump, JumpReg => e_jump_reg,
-    pc => s_PC, pc_plus4 => f_pc_plus4);
+  U_FETCH: fetch_logic_hw port map(
+    clk => iCLK, 
+    reset => s_reset, 
+    branch_pc => e_pc, 
+    imm => e_imm,
+    alu_result => x_alu_result, 
+    zero => x_zero, 
+    funct3 => e_funct3,
+    Branch => e_branch, 
+    Jump => e_jump, 
+    JumpReg => e_jump_reg,
+    pc => s_PC, 
+    pc_plus4 => f_pc_plus4,
+    stall =>h_pc_stall,
+    redirect => f_redirect
+);
   U_IF_ID: reg_IF_ID port map(i_clk => iCLK, i_rst => s_reset,
-    i_stall => '0', i_flush => '0', i_pc => s_PC, i_pc_plus4 => f_pc_plus4,
+    i_stall => h_ifID_stall, i_flush => h_ifid_flush, i_pc => s_PC, i_pc_plus4 => f_pc_plus4,
     i_inst => s_Inst, o_pc => d_pc, o_pc_plus4 => d_pc_plus4, o_inst => d_inst);
   U_CONTROL: control_unit port map(
     instruction => d_inst, RegWrite => d_reg_write, MemWrite => d_mem_write,
@@ -397,13 +460,15 @@ begin
     AUIPC => d_auipc, ImmSrc => d_imm_src, ALUControl => d_alu_ctrl);
   U_REGFILE: reg_file port map(iCLK, s_reset, s_RegWr, s_RegWrAddr,
     s_RegWrData, d_inst(19 downto 15), d_inst(24 downto 20), d_reg_read1, d_reg_read2);
+    d_rs1_val <= s_RegWrData when (s_RegWr ='1' and s_RegWrAddr /= "00000" and s_RegWrAddr = d_inst(19 downto 15) ) else d_reg_read1; --new for hardware
+    d_rs2_val <= s_RegWrData when (s_RegWr ='1' and s_RegWrAddr /= "00000" and s_RegWrAddr = d_inst(24 downto 20)) else d_reg_read2; -- new for hardware
   U_IMMGEN: imm_gen port map(d_inst, d_imm_src, d_imm);
   d_halt <= '1' when d_inst = x"10500073" else '0';
   U_ID_EX: reg_ID_EX port map(
     i_clk => iCLK,
     i_rst => s_reset,
     i_stall => '0',
-    i_flush => '0',
+    i_flush => h_idex_flush,
     i_reg_write => d_reg_write,
     i_alu_src => d_alu_src,
     i_auipc => d_auipc,
@@ -417,8 +482,8 @@ begin
     i_alu_ctrl => d_alu_ctrl,
     i_pc => d_pc,
     i_pc_plus4 => d_pc_plus4,
-    i_reg_read1 => d_reg_read1,
-    i_reg_read2 => d_reg_read2,
+    i_reg_read1 => d_rs1_val, --new for hw
+    i_reg_read2 => d_rs2_val,--new for hw
     i_imm => d_imm,
     i_funct3 => d_inst(14 downto 12),
     i_rs1 => d_inst(19 downto 15),
@@ -458,7 +523,7 @@ begin
     i_halt => e_halt,
     i_pc_plus4 => e_pc_plus4,
     i_alu_result => x_alu_result,
-    i_reg_read2 => e_reg_read2,
+    i_reg_read2 => x_rs2_val,
     i_imm => e_imm,
     i_funct3 => e_funct3,
     i_rd => e_rd,
@@ -504,13 +569,53 @@ begin
     o_imm => w_imm,
     o_funct3 => w_funct3,
     o_rd => w_rd);
+--new for hw
+    U_FWD: forwarding_unit port map(
+    i_ex_rs1        => e_rs1,
+    i_ex_rs2        => e_rs2,
+    i_mem_rd        => m_rd,
+    i_mem_reg_write => m_reg_write,
+    i_wb_rd         => w_rd,
+    i_wb_reg_write  => w_reg_write,
+    o_fwd_a         => x_fwd_a,
+    o_fwd_b         => x_fwd_b);
+ 
+U_HAZARD: hazard_detection port map(
+    i_id_rs1      => d_inst(19 downto 15),
+    i_id_rs2      => d_inst(24 downto 20),
+    i_ex_rd       => e_rd,
+    i_ex_mem_read => e_mem_to_reg,
+    i_pc_redirect => f_redirect,
+    o_pc_stall    => h_pc_stall,
+    o_ifid_stall  => h_ifid_stall,
+    o_ifid_flush  => h_ifid_flush,
+    o_idex_flush  => h_idex_flush); 
+ 
+U_FWDA: mux4_32 port map(
+    d0 => e_reg_read1,      -- "00": normal rs1 value from ID/EX
+    d1 => s_RegWrData,      -- "01": value WB is writing
+    d2 => m_fwd_data,      -- "10": MEM's result
+    d3 => m_fwd_data,      -- "11": never happens, any value is fine (reuse d2's)
+    s  => x_fwd_a,      -- select for rs1
+    y  => x_rs1_val);     -- rs1 after forwarding
 
-  U_ALUA: mux2_32 port map(e_reg_read1, e_pc, e_auipc, x_alu_a);
-  U_ALUB: mux2_32 port map(e_reg_read2, e_imm, e_alu_src, x_alu_b);
+U_FWDB: mux4_32 port map(
+    d0 => e_reg_read2,      -- "00": normal rs2 value from ID/EX
+    d1 => s_RegWrData,      -- "01": value WB is writing
+    d2 => m_fwd_data,      -- "10": MEM's result
+    d3 => m_fwd_data,      -- "11": never happens, any value is fine (reuse d2's)
+    s  => x_fwd_b,      -- select for rs2
+    y  => x_rs2_val);     -- rs2 after forwarding
+
+  U_ALUA: mux2_32 port map(x_rs1_val, e_pc, e_auipc, x_alu_a);
+  U_ALUB: mux2_32 port map(x_rs2_val, e_imm, e_alu_src, x_alu_b);
   U_ALU: alu port map(x_alu_a, x_alu_b, e_alu_ctrl, x_alu_result, x_zero);
   oALUOut <= x_alu_result;
   -- Store address, width and data must all come from MEM, not current decode.
   s_DMemAddr <= m_alu_result;
+  m_fwd_data <= m_imm when m_lui = '1' else
+              m_pc_plus4 when m_jump = '1' or m_jump_reg = '1' else
+              m_alu_result;
   s_DMemWr <= m_mem_write and not s_reset;
   with m_alu_result(1 downto 0) select
     sb_be <= "0001" when "00", "0010" when "01", "0100" when "10", "1000" when others;

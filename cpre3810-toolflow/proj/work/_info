@@ -5,7 +5,13 @@ Z0 !s12c _opt1
 Z1 !s99 nomlopt
 Z2 !s12c _opt
 R1
-!s12c _opt2
+Z3 !s12c _opt2
+R1
+R0
+R1
+R2
+R1
+R3
 R1
 R0
 R1
@@ -18,60 +24,60 @@ R1
 !i10e 25
 !i10f 100
 cModel Technology
-Z3 d/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj
+Z4 d/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj
 T_opt
 !i145 1
 !i144 0
-!s110 1793238844
-VnOeU<eD:FR5oA4eJjLVkR0
-04 14 8 work tb_fetch_logic behavior 1
-=1-005056b61e19-6ae2a73c-6589-4fba
+!s110 1795386666
+V4o3c^YZ@Z[f3edGBKE6C63
+04 18 8 work tb_forwarding_unit behavior 1
+=1-005056b6e2fc-6b036d2a-9c729-3406
 R1
-Z4 !s12f OEM100
-Z5 !s12b OEM100
-Z6 !s124 OEM100
-Z7 !s135 nogc
+Z5 !s12f OEM100
+Z6 !s12b OEM100
+Z7 !s124 OEM100
+Z8 !s135 nogc
 !i152 0
-o-quiet -auto_acc_if_foreign -work work
-Z8 tCvgOpt 0
+Z9 o-quiet -auto_acc_if_foreign -work work
+Z10 tCvgOpt 0
 n@_opt
-Z9 OL;O;2026.2;84
-R3
+Z11 OL;O;2026.2;84
+R4
 T_opt1
 !i145 1
 !i144 0
-Z10 !s110 1794450392
-VS5Bd2cnobHg9g3:`?S=?G1
-04 10 5 work tb_sw_demo mixed 1
-=1-005056b6fa1c-6af523d8-5af9e-66ea
+!s110 1795387495
+Vgfb^NmQT913oXbAoS=2P[2
+04 19 8 work tb_hazard_detection behavior 1
+=1-005056b6e2fc-6b037067-36b2b-3b01
 R1
-R4
 R5
 R6
 R7
-!i152 0
-Z11 o-quiet -auto_acc_if_foreign -work work +acc
 R8
+!i152 0
+o-quiet -auto_acc_if_foreign -work work +acc
+R10
 n@_opt1
-R9
+R11
 T_opt2
 !i145 1
 !i144 0
-!s110 1793082526
-VTnRGmAd0^?[@<DC4Pb1M@0
-04 17 8 work tb_barrel_shifter behavior 1
-=1-005056b62eae-6ae0449e-4b0b1-d4bb
+!s110 1795385337
+V2d6N2L=:=?BCkg]i8gAS:3
+04 16 8 work tb_pipeline_regs behavior 1
+=1-005056b6e2fc-6b0367f9-12b4a-2cb0
 R1
-R4
 R5
 R6
 R7
-!i152 0
-R11
 R8
-n@_opt2
+!i152 0
 R9
-R3
+R10
+n@_opt2
+R11
+R4
 Eadder_n
 Z12 w1792673454
 Z13 DPx3 std 6 textio 0 22 <UlP6K1@RDQa_MJ[:UEnP2
@@ -175,7 +181,7 @@ Z34 !s108 1793076351.000000
 Z35 o-work work
 R24
 R12
-R3
+R4
 F/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/src/alu.vhd
 8/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/src/alu.vhd
 Ealu_add_sub_32
@@ -526,7 +532,7 @@ R18
 R35
 R24
 R12
-R3
+R4
 F/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/src/barrel_shifter.vhd
 8/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/src/barrel_shifter.vhd
 Ebs_mux2t1
@@ -739,7 +745,7 @@ R12
 R13
 R14
 !i122 2
-R3
+R4
 Z65 8/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/src/dmem_word_addr.vhd
 Z66 F/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/src/dmem_word_addr.vhd
 l0
@@ -861,14 +867,55 @@ R77
 !i113 0
 R23
 R24
+Eforwarding_unit
+Z78 w1795386503
+R13
+R14
+!i122 61
+Z79 d/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj
+Z80 8/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/forwarding_unit.vhd
+Z81 F/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/forwarding_unit.vhd
+l0
+R47
+VlOJjQQ34TzRNY4blG7:>[1
+!s100 FaW[XXR?7OEHcUM:ghYO53
+R18
+33
+Z82 !s110 1795386651
+!i10b 1
+Z83 !s108 1795386651.000000
+Z84 !s90 -reportprogress|300|-work|work|/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/forwarding_unit.vhd|
+Z85 !s107 /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/forwarding_unit.vhd|
+!i113 0
+R35
+Z86 tExplicit 1 NoCoverage 1 CvgOpt 0
+Adataflow
+R13
+R14
+DEx4 work 15 forwarding_unit 0 22 lOJjQQ34TzRNY4blG7:>[1
+!i122 61
+l29
+L28 16
+V;Z_BXA;g;XX<N4Q[e;5;R3
+!s100 UcVgGZP@>WfLeHb=gEmk90
+R18
+33
+R82
+!i10b 1
+R83
+R84
+R85
+!i113 0
+R35
+R86
 Efulladder
 R12
 R13
 R14
 !i122 33
 R15
-Z78 8src/Adder_Files/FullAdder.vhd
-Z79 Fsrc/Adder_Files/FullAdder.vhd
+Z87 8src/Adder_Files/FullAdder.vhd
+Z88 Fsrc/Adder_Files/FullAdder.vhd
 l0
 L7 1
 VdjdJhYz^i;]>NO8BjMXz=1
@@ -878,8 +925,8 @@ R18
 R19
 !i10b 1
 R20
-Z80 !s90 -reportprogress|300|-2008|src/Adder_Files/FullAdder.vhd|
-Z81 !s107 src/Adder_Files/FullAdder.vhd|
+Z89 !s90 -reportprogress|300|-2008|src/Adder_Files/FullAdder.vhd|
+Z90 !s107 src/Adder_Files/FullAdder.vhd|
 !i113 0
 R23
 R24
@@ -897,19 +944,60 @@ R18
 R19
 !i10b 1
 R20
-R80
-R81
+R89
+R90
 !i113 0
 R23
 R24
+Ehazard_detection
+Z91 w1795387409
+R13
+R14
+!i122 63
+R79
+Z92 8/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/hazard_detection.vhd
+Z93 F/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/hazard_detection.vhd
+l0
+L18 1
+V4kc=VbFKdOXAV;6jT:`G:1
+!s100 AX9CXo50[9V_cBGiW5MAN1
+R18
+33
+Z94 !s110 1795387471
+!i10b 1
+Z95 !s108 1795387471.000000
+Z96 !s90 -reportprogress|300|-work|work|/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/hazard_detection.vhd|
+Z97 !s107 /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/src/hazard_detection.vhd|
+!i113 0
+R35
+R86
+Adataflow
+R13
+R14
+DEx4 work 16 hazard_detection 0 22 4kc=VbFKdOXAV;6jT:`G:1
+!i122 63
+l34
+L32 14
+Vc>aOVFAekHgZ`Dh<m_;zZ0
+!s100 91o7M>5?hjCP;eA128@n41
+R18
+33
+R94
+!i10b 1
+R95
+R96
+R97
+!i113 0
+R35
+R86
 Eimm_gen
 R12
 R13
 R14
 !i122 45
 R15
-Z82 8src/imm_gen.vhd
-Z83 Fsrc/imm_gen.vhd
+Z98 8src/imm_gen.vhd
+Z99 Fsrc/imm_gen.vhd
 l0
 L7 1
 V5CbZDe4_AZI?R6M>BbR`i3
@@ -919,8 +1007,8 @@ R18
 R28
 !i10b 1
 R29
-Z84 !s90 -reportprogress|300|-2008|src/imm_gen.vhd|
-Z85 !s107 src/imm_gen.vhd|
+Z100 !s90 -reportprogress|300|-2008|src/imm_gen.vhd|
+Z101 !s107 src/imm_gen.vhd|
 !i113 0
 R23
 R24
@@ -938,31 +1026,31 @@ R18
 R28
 !i10b 1
 R29
-R84
-R85
+R100
+R101
 !i113 0
 R23
 R24
 Emem
-Z86 w1792969727
+Z102 w1792969727
 R32
 R13
 R14
 !i122 51
 R15
-Z87 8src/TopLevel/mem.vhd
-Z88 Fsrc/TopLevel/mem.vhd
+Z103 8src/TopLevel/mem.vhd
+Z104 Fsrc/TopLevel/mem.vhd
 l0
 L8 1
 VIzFWcSf4Ab?QW]c5MIG9T0
 !s100 <FE^5`c6G[DN?g3EGE^:f0
 R18
 33
-R10
+Z105 !s110 1794450392
 !i10b 1
-Z89 !s108 1794450392.000000
-Z90 !s90 -reportprogress|300|-2008|src/TopLevel/mem.vhd|
-Z91 !s107 src/TopLevel/mem.vhd|
+Z106 !s108 1794450392.000000
+Z107 !s90 -reportprogress|300|-2008|src/TopLevel/mem.vhd|
+Z108 !s107 src/TopLevel/mem.vhd|
 !i113 0
 R23
 R24
@@ -978,11 +1066,11 @@ Vkh8MMz7zQoj`Dh9M:o]mz0
 !s100 M8@fCBfhYoIU@PkXS=DFb3
 R18
 33
-R10
+R105
 !i10b 1
-R89
-R90
-R91
+R106
+R107
+R108
 !i113 0
 R23
 R24
@@ -992,8 +1080,8 @@ R13
 R14
 !i122 41
 R15
-Z92 8src/mux2_32.vhd
-Z93 Fsrc/mux2_32.vhd
+Z109 8src/mux2_32.vhd
+Z110 Fsrc/mux2_32.vhd
 l0
 L4 1
 Vag<:9LT9?eA_zF7HP2MOa3
@@ -1003,8 +1091,8 @@ R18
 R28
 !i10b 1
 R29
-Z94 !s90 -reportprogress|300|-2008|src/mux2_32.vhd|
-Z95 !s107 src/mux2_32.vhd|
+Z111 !s90 -reportprogress|300|-2008|src/mux2_32.vhd|
+Z112 !s107 src/mux2_32.vhd|
 !i113 0
 R23
 R24
@@ -1022,8 +1110,8 @@ R18
 R28
 !i10b 1
 R29
-R94
-R95
+R111
+R112
 !i113 0
 R23
 R24
@@ -1034,8 +1122,8 @@ R13
 R14
 !i122 39
 R15
-Z96 8src/32to1mux.vhd
-Z97 Fsrc/32to1mux.vhd
+Z113 8src/32to1mux.vhd
+Z114 Fsrc/32to1mux.vhd
 l0
 L5 1
 Va]>:YS0Jb>iz;5hFPVkMo2
@@ -1045,8 +1133,8 @@ R18
 R28
 !i10b 1
 R29
-Z98 !s90 -reportprogress|300|-2008|src/32to1mux.vhd|
-Z99 !s107 src/32to1mux.vhd|
+Z115 !s90 -reportprogress|300|-2008|src/32to1mux.vhd|
+Z116 !s107 src/32to1mux.vhd|
 !i113 0
 R23
 R24
@@ -1065,8 +1153,8 @@ R18
 R28
 !i10b 1
 R29
-R98
-R99
+R115
+R116
 !i113 0
 R23
 R24
@@ -1076,8 +1164,8 @@ R13
 R14
 !i122 42
 R15
-Z100 8src/mux4_32.vhd
-Z101 Fsrc/mux4_32.vhd
+Z117 8src/mux4_32.vhd
+Z118 Fsrc/mux4_32.vhd
 l0
 L5 1
 VM`HPH2Ql2P6M>m[<oPkiQ2
@@ -1087,8 +1175,8 @@ R18
 R28
 !i10b 1
 R29
-Z102 !s90 -reportprogress|300|-2008|src/mux4_32.vhd|
-Z103 !s107 src/mux4_32.vhd|
+Z119 !s90 -reportprogress|300|-2008|src/mux4_32.vhd|
+Z120 !s107 src/mux4_32.vhd|
 !i113 0
 R23
 R24
@@ -1106,8 +1194,8 @@ R18
 R28
 !i10b 1
 R29
-R102
-R103
+R119
+R120
 !i113 0
 R23
 R24
@@ -1117,8 +1205,8 @@ R13
 R14
 !i122 31
 R15
-Z104 8src/Adder_Files/org2.vhd
-Z105 Fsrc/Adder_Files/org2.vhd
+Z121 8src/Adder_Files/org2.vhd
+Z122 Fsrc/Adder_Files/org2.vhd
 l0
 R38
 V_Bhed>84Im_4i_<jORmTc2
@@ -1128,8 +1216,8 @@ R18
 R19
 !i10b 1
 R20
-Z106 !s90 -reportprogress|300|-2008|src/Adder_Files/org2.vhd|
-Z107 !s107 src/Adder_Files/org2.vhd|
+Z123 !s90 -reportprogress|300|-2008|src/Adder_Files/org2.vhd|
+Z124 !s107 src/Adder_Files/org2.vhd|
 !i113 0
 R23
 R24
@@ -1147,8 +1235,8 @@ R18
 R19
 !i10b 1
 R20
-R106
-R107
+R123
+R124
 !i113 0
 R23
 R24
@@ -1158,8 +1246,8 @@ R13
 R14
 !i122 50
 R15
-Z108 8src/pipeline_regs.vhd
-Z109 Fsrc/pipeline_regs.vhd
+Z125 8src/pipeline_regs.vhd
+Z126 Fsrc/pipeline_regs.vhd
 l0
 L240 1
 VSd:5=5:2JLD_7SaL4=7BM2
@@ -1169,8 +1257,8 @@ R18
 R28
 !i10b 1
 R29
-Z110 !s90 -reportprogress|300|-2008|src/pipeline_regs.vhd|
-Z111 !s107 src/pipeline_regs.vhd|
+Z127 !s90 -reportprogress|300|-2008|src/pipeline_regs.vhd|
+Z128 !s107 src/pipeline_regs.vhd|
 !i113 0
 R23
 R24
@@ -1188,8 +1276,8 @@ R18
 R28
 !i10b 1
 R29
-R110
-R111
+R127
+R128
 !i113 0
 R23
 R24
@@ -1199,8 +1287,8 @@ R13
 R14
 !i122 40
 R15
-Z112 8src/reg_file.vhd
-Z113 Fsrc/reg_file.vhd
+Z129 8src/reg_file.vhd
+Z130 Fsrc/reg_file.vhd
 l0
 L4 1
 VdW7Fif_S;MDXe@3VZlPeN0
@@ -1210,8 +1298,8 @@ R18
 R28
 !i10b 1
 R29
-Z114 !s90 -reportprogress|300|-2008|src/reg_file.vhd|
-Z115 !s107 src/reg_file.vhd|
+Z131 !s90 -reportprogress|300|-2008|src/reg_file.vhd|
+Z132 !s107 src/reg_file.vhd|
 !i113 0
 R23
 R24
@@ -1229,8 +1317,8 @@ R18
 R28
 !i10b 1
 R29
-R114
-R115
+R131
+R132
 !i113 0
 R23
 R24
@@ -1240,8 +1328,8 @@ R13
 R14
 !i122 50
 R15
-R108
-R109
+R125
+R126
 l0
 L66 1
 V2`gg;IdGl>a86K]i0;Q:c1
@@ -1251,8 +1339,8 @@ R18
 R28
 !i10b 1
 R29
-R110
-R111
+R127
+R128
 !i113 0
 R23
 R24
@@ -1270,8 +1358,8 @@ R18
 R28
 !i10b 1
 R29
-R110
-R111
+R127
+R128
 !i113 0
 R23
 R24
@@ -1281,8 +1369,8 @@ R13
 R14
 !i122 50
 R15
-R108
-R109
+R125
+R126
 l0
 R47
 V_bh?QKT<oehCl>mW>g9:51
@@ -1292,8 +1380,8 @@ R18
 R28
 !i10b 1
 R29
-R110
-R111
+R127
+R128
 !i113 0
 R23
 R24
@@ -1311,8 +1399,8 @@ R18
 R28
 !i10b 1
 R29
-R110
-R111
+R127
+R128
 !i113 0
 R23
 R24
@@ -1322,19 +1410,19 @@ R13
 R14
 !i122 50
 R15
-R108
-R109
+R125
+R126
 l0
 L365 1
 Vg_@EIS[T[^[1bAzGeOSJQ3
 !s100 zblKFL0WeYIE1=7HdhSEf3
 R18
 33
-R10
+R105
 !i10b 1
 R29
-R110
-R111
+R127
+R128
 !i113 0
 R23
 R24
@@ -1349,11 +1437,11 @@ VB6R`0[9>PQ2MU<Yciiic83
 !s100 bZ:^VAAo[N@FnWffYSPBF0
 R18
 33
-R10
+R105
 !i10b 1
 R29
-R110
-R111
+R127
+R128
 !i113 0
 R23
 R24
@@ -1363,8 +1451,8 @@ R13
 R14
 !i122 37
 R15
-Z116 8src/reg_n.vhd
-Z117 Fsrc/reg_n.vhd
+Z133 8src/reg_n.vhd
+Z134 Fsrc/reg_n.vhd
 l0
 L7 1
 VFmD>>5?TNki<lb3a<>IRd3
@@ -1374,8 +1462,8 @@ R18
 R28
 !i10b 1
 R20
-Z118 !s90 -reportprogress|300|-2008|src/reg_n.vhd|
-Z119 !s107 src/reg_n.vhd|
+Z135 !s90 -reportprogress|300|-2008|src/reg_n.vhd|
+Z136 !s107 src/reg_n.vhd|
 !i113 0
 R23
 R24
@@ -1393,36 +1481,36 @@ R18
 R28
 !i10b 1
 R20
-R118
-R119
+R135
+R136
 !i113 0
 R23
 R24
 Eriscv_processor
 R73
-Z120 DPx4 work 11 riscv_types 0 22 nf67MlQ]=ja05D<=icfjd1
+Z137 DPx4 work 11 riscv_types 0 22 nf67MlQ]=ja05D<=icfjd1
 R13
 R14
 !i122 52
 R15
-Z121 8src/TopLevel/RISCV_Processor.vhd
-Z122 Fsrc/TopLevel/RISCV_Processor.vhd
+Z138 8src/TopLevel/RISCV_Processor.vhd
+Z139 Fsrc/TopLevel/RISCV_Processor.vhd
 l0
 R47
 VQQS<gg8NW^fOGEBYW0fZ83
 !s100 aG_J5ha`6_oJ>eSTag?^@1
 R18
 33
-R10
+R105
 !i10b 1
-R89
-Z123 !s90 -reportprogress|300|-2008|src/TopLevel/RISCV_Processor.vhd|
-Z124 !s107 src/TopLevel/RISCV_Processor.vhd|
+R106
+Z140 !s90 -reportprogress|300|-2008|src/TopLevel/RISCV_Processor.vhd|
+Z141 !s107 src/TopLevel/RISCV_Processor.vhd|
 !i113 0
 R23
 R24
 Astructure
-R120
+R137
 R13
 R14
 DEx4 work 15 riscv_processor 0 22 QQS<gg8NW^fOGEBYW0fZ83
@@ -1433,11 +1521,11 @@ V:^KIWOLMHXRESKM;0D:ln1
 !s100 foKIQcP_b^PL9m<=l5Vg_2
 R18
 33
-R10
+R105
 !i10b 1
-R89
-R123
-R124
+R106
+R140
+R141
 !i113 0
 R23
 R24
@@ -1445,10 +1533,10 @@ Priscv_types
 R13
 R14
 !i122 29
-R86
+R102
 R15
-Z125 8src/RISCV_types.vhd
-Z126 Fsrc/RISCV_types.vhd
+Z142 8src/RISCV_types.vhd
+Z143 Fsrc/RISCV_types.vhd
 l0
 L15 13
 Vnf67MlQ]=ja05D<=icfjd1
@@ -1458,13 +1546,13 @@ R18
 R19
 !i10b 1
 R20
-Z127 !s90 -reportprogress|300|-2008|src/RISCV_types.vhd|
-Z128 !s107 src/RISCV_types.vhd|
+Z144 !s90 -reportprogress|300|-2008|src/RISCV_types.vhd|
+Z145 !s107 src/RISCV_types.vhd|
 !i113 0
 R23
 R24
 Bbody
-R120
+R137
 R13
 R14
 !i122 29
@@ -1477,30 +1565,30 @@ R18
 R19
 !i10b 1
 R20
-R127
-R128
+R144
+R145
 !i113 0
 R23
 R24
 Etb_barrel_shifter
-Z129 w1793082448
+Z146 w1793082448
 R13
 R14
 !i122 26
-R3
-Z130 8/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_barrel_shifter.vhd
-Z131 F/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_barrel_shifter.vhd
+R4
+Z147 8/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_barrel_shifter.vhd
+Z148 F/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_barrel_shifter.vhd
 l0
 L8 1
 VzG0o<S_M?3jf[[HTl8M>m2
 !s100 U:;Y^I9MCgHC6N65<Xb912
 R18
 32
-Z132 !s110 1793082451
+Z149 !s110 1793082451
 !i10b 1
-Z133 !s108 1793082451.000000
-Z134 !s90 -reportprogress|300|-work|work|/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_barrel_shifter.vhd|
-Z135 !s107 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_barrel_shifter.vhd|
+Z150 !s108 1793082451.000000
+Z151 !s90 -reportprogress|300|-work|work|/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_barrel_shifter.vhd|
+Z152 !s107 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_barrel_shifter.vhd|
 !i113 0
 R35
 R24
@@ -1515,33 +1603,33 @@ VdIWQ6G4K<Qnco^Z<FbL`^3
 !s100 hl_E@;<?FMHb@I2RaaX[G1
 R18
 32
-R132
+R149
 !i10b 1
-R133
-R134
-R135
+R150
+R151
+R152
 !i113 0
 R35
 R24
 Etb_control_unit
-Z136 w1793077203
+Z153 w1793077203
 R13
 R14
 !i122 23
-R3
-Z137 8/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/test/tb_control_unit.vhd
-Z138 F/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/test/tb_control_unit.vhd
+R4
+Z154 8/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/test/tb_control_unit.vhd
+Z155 F/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/test/tb_control_unit.vhd
 l0
 L4 1
 VQYeabR]Ucb<U1E@VO4WzD0
 !s100 ]ZMjDISkag3AjUKmD]UmO2
 R18
 32
-Z139 !s110 1793077821
+Z156 !s110 1793077821
 !i10b 1
-Z140 !s108 1793077821.000000
-Z141 !s90 -reportprogress|300|-work|work|/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/test/tb_control_unit.vhd|
-Z142 !s107 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/test/tb_control_unit.vhd|
+Z157 !s108 1793077821.000000
+Z158 !s90 -reportprogress|300|-work|work|/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/test/tb_control_unit.vhd|
+Z159 !s107 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/test/tb_control_unit.vhd|
 !i113 0
 R35
 R24
@@ -1556,33 +1644,33 @@ VAl6PK9WfP^`]km`73m>i60
 !s100 YFz4RoPM]cEG1S`J@H5l21
 R18
 32
-R139
+R156
 !i10b 1
-R140
-R141
-R142
+R157
+R158
+R159
 !i113 0
 R35
 R24
 Etb_fetch_logic
-Z143 w1793079926
+Z160 w1793079926
 R13
 R14
 !i122 24
-R3
-Z144 8/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_fetch_logic.vhd
-Z145 F/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_fetch_logic.vhd
+R4
+Z161 8/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_fetch_logic.vhd
+Z162 F/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_fetch_logic.vhd
 l0
 L8 1
 Vf4`QXZ;S3laF50@iAZb491
 !s100 N=UUEC>EV9WE>10GBSA8:2
 R18
 32
-Z146 !s110 1793079958
+Z163 !s110 1793079958
 !i10b 1
-Z147 !s108 1793079958.000000
-Z148 !s90 -reportprogress|300|-work|work|/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_fetch_logic.vhd|
-Z149 !s107 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_fetch_logic.vhd|
+Z164 !s108 1793079958.000000
+Z165 !s90 -reportprogress|300|-work|work|/home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_fetch_logic.vhd|
+Z166 !s107 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/tb_fetch_logic.vhd|
 !i113 0
 R35
 R24
@@ -1597,41 +1685,166 @@ V_Z`7bg:G]?cAADSV]1e5B1
 !s100 EST[]N9Gf50Ok6<g]mUEB3
 R18
 32
-R146
+R163
 !i10b 1
-R147
-R148
-R149
+R164
+R165
+R166
+!i113 0
+R35
+R24
+Etb_forwarding_unit
+Z167 w1795385844
+R13
+R14
+!i122 62
+R79
+Z168 8/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd
+Z169 F/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd
+l0
+L14 1
+VFDl^l0B6AT9L67FQ7L6>@0
+!s100 G[?XJadzHRZX1U1bA9fJ`0
+R18
+33
+Z170 !s110 1795386655
+!i10b 1
+Z171 !s108 1795386655.000000
+Z172 !s90 -reportprogress|300|-work|work|/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd|
+Z173 !s107 /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd|
+!i113 0
+R35
+R86
+Abehavior
+R13
+R14
+DEx4 work 18 tb_forwarding_unit 0 22 FDl^l0B6AT9L67FQ7L6>@0
+!i122 62
+l36
+L17 85
+VcQ@=oD?b8e>k<QhOd0kIM1
+!s100 XRef8GC2fAfVW^AEgkEzB1
+R18
+33
+R170
+!i10b 1
+R171
+R172
+R173
+!i113 0
+R35
+R86
+Etb_hazard_detection
+Z174 w1795386805
+R13
+R14
+!i122 64
+R79
+Z175 8/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_hazard_detection.vhd
+Z176 F/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_hazard_detection.vhd
+l0
+L12 1
+V:HA;0d;_c3?N:idCOLLa12
+!s100 QDiUcZOjahZKJ2T<1zGk60
+R18
+33
+Z177 !s110 1795387477
+!i10b 1
+Z178 !s108 1795387477.000000
+Z179 !s90 -reportprogress|300|-work|work|/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_hazard_detection.vhd|
+Z180 !s107 /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_hazard_detection.vhd|
+!i113 0
+R35
+R86
+Abehavior
+R13
+R14
+DEx4 work 19 tb_hazard_detection 0 22 :HA;0d;_c3?N:idCOLLa12
+!i122 64
+l35
+L15 76
+VY?D7e@UN3Q>ZSnmOcL?Mm2
+!s100 d7b8T9=03>S^cFlfaYQXW0
+R18
+33
+R177
+!i10b 1
+R178
+R179
+R180
+!i113 0
+R35
+R86
+Etb_pipeline_regs
+Z181 w1795385108
+R32
+R13
+R14
+!i122 54
+R79
+Z182 8/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_pipeline_regs.vhd
+Z183 F/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_pipeline_regs.vhd
+l0
+L21 1
+V3_B9Z4YP7nmlGWebP>2_z0
+!s100 i[goCMAQWUYj8FM;fUB:C0
+R18
+32
+Z184 !s110 1795385228
+!i10b 1
+Z185 !s108 1795385228.000000
+Z186 !s90 -reportprogress|300|-work|work|/home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_pipeline_regs.vhd|
+Z187 !s107 /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_pipeline_regs.vhd|
+!i113 0
+R35
+R24
+Abehavior
+R32
+R13
+R14
+DEx4 work 16 tb_pipeline_regs 0 22 3_B9Z4YP7nmlGWebP>2_z0
+!i122 54
+l98
+L24 277
+VINfUY[MN<oPCnlDe9zZ3T1
+!s100 KFH]6Hh05>kaIL0m>UHm80
+R18
+32
+R184
+!i10b 1
+R185
+R186
+R187
 !i113 0
 R35
 R24
 Etb_sw_demo
 R73
-Z150 DPx3 std 3 env 0 22 mJj^M]e`oP>;WoZ=b<O3C0
-Z151 DPx4 ieee 16 std_logic_textio 0 22 i<^3g?=>FM?3b:<^1:oD>2
+Z188 DPx3 std 3 env 0 22 mJj^M]e`oP>;WoZ=b<O3C0
+Z189 DPx4 ieee 16 std_logic_textio 0 22 i<^3g?=>FM?3b:<^1:oD>2
 R13
 R14
 !i122 53
 R15
-Z152 8test/tb_sw_demo.vhd
-Z153 Ftest/tb_sw_demo.vhd
+Z190 8test/tb_sw_demo.vhd
+Z191 Ftest/tb_sw_demo.vhd
 l0
 L25 1
 V;mYQaoS?[zMT@g_AQXc;`2
 !s100 g;^6RUjEVF]bYb2Z>9]7o1
 R18
 33
-R10
+R105
 !i10b 1
-R89
-Z154 !s90 -reportprogress|300|-2008|test/tb_sw_demo.vhd|
-Z155 !s107 test/tb_sw_demo.vhd|
+R106
+Z192 !s90 -reportprogress|300|-2008|test/tb_sw_demo.vhd|
+Z193 !s107 test/tb_sw_demo.vhd|
 !i113 0
 R23
 R24
 Amixed
-R150
-R151
+R188
+R189
 R13
 R14
 DEx4 work 10 tb_sw_demo 0 22 ;mYQaoS?[zMT@g_AQXc;`2
@@ -1642,22 +1855,22 @@ VkI67;HCkW3F?H3PeakDIH0
 !s100 oX26e9kRNBEmVf<GQ1G4b0
 R18
 33
-R10
+R105
 !i10b 1
-R89
-R154
-R155
+R106
+R192
+R193
 !i113 0
 R23
 R24
 Ewriteback_select
-Z156 w1792951239
+Z194 w1792951239
 R13
 R14
 !i122 49
 R15
-Z157 8src/writeback_select.vhd
-Z158 Fsrc/writeback_select.vhd
+Z195 8src/writeback_select.vhd
+Z196 Fsrc/writeback_select.vhd
 l0
 L4 1
 VJloB^N7`D?nQkefeCo_C:3
@@ -1667,8 +1880,8 @@ R18
 R28
 !i10b 1
 R29
-Z159 !s90 -reportprogress|300|-2008|src/writeback_select.vhd|
-Z160 !s107 src/writeback_select.vhd|
+Z197 !s90 -reportprogress|300|-2008|src/writeback_select.vhd|
+Z198 !s107 src/writeback_select.vhd|
 !i113 0
 R23
 R24
@@ -1686,8 +1899,8 @@ R18
 R28
 !i10b 1
 R29
-R159
-R160
+R197
+R198
 !i113 0
 R23
 R24
@@ -1697,8 +1910,8 @@ R13
 R14
 !i122 32
 R15
-Z161 8src/Adder_Files/xorg2.vhd
-Z162 Fsrc/Adder_Files/xorg2.vhd
+Z199 8src/Adder_Files/xorg2.vhd
+Z200 Fsrc/Adder_Files/xorg2.vhd
 l0
 R38
 VJQ6Rl<gH=eS[4a<d_JXn71
@@ -1708,8 +1921,8 @@ R18
 R19
 !i10b 1
 R20
-Z163 !s90 -reportprogress|300|-2008|src/Adder_Files/xorg2.vhd|
-Z164 !s107 src/Adder_Files/xorg2.vhd|
+Z201 !s90 -reportprogress|300|-2008|src/Adder_Files/xorg2.vhd|
+Z202 !s107 src/Adder_Files/xorg2.vhd|
 !i113 0
 R23
 R24
@@ -1727,8 +1940,8 @@ R18
 R19
 !i10b 1
 R20
-R163
-R164
+R201
+R202
 !i113 0
 R23
 R24

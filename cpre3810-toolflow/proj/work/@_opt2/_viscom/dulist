@@ -1,2 +1,5 @@
-1 14 barrel_shifter 8 dataflow 59 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/work 1 65 0 0 277 0
-1 17 tb_barrel_shifter 8 behavior 59 /home/gmh2005/cpre3810/cpre3810-toolflow-labProj1/proj/work 1 65 0 0 131 0
+1 9 reg_if_id 10 behavioral 72 /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/work 1 65 0 0 99 0
+1 9 reg_id_ex 10 behavioral 72 /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/work 1 65 0 0 438 0
+1 10 reg_ex_mem 10 behavioral 72 /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/work 1 65 0 0 282 0
+1 10 reg_mem_wb 10 behavioral 72 /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/work 1 65 0 0 270 0
+1 16 tb_pipeline_regs 8 behavior 72 /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/work 1 65 0 0 1001 0

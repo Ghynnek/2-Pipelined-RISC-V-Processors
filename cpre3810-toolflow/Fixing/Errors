@@ -1,0 +1,11 @@
+# ** Error: /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd(69): (vcom-1136) Unknown identifier "to_string".
+# ** Error: /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd(69): (vcom-1590) Bad expression in left operand of infix expression '&'.
+# ** Error: /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd(69): (vcom-1590) Bad expression in left operand of infix expression '&'.
+# ** Error: /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd(69): (vcom-1136) Unknown identifier "to_string".
+# ** Error: /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd(69): (vcom-1590) Bad expression in left operand of infix expression '&'.
+# ** Error: /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd(70): (vcom-1590) Bad expression in left operand of infix expression '&'.
+# ** Error: /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd(70): (vcom-1136) Unknown identifier "to_string".
+# ** Error: /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd(70): (vcom-1590) Bad expression in left operand of infix expression '&'.
+# ** Error: /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd(70): (vcom-1590) Bad expression in left operand of infix expression '&'.
+# ** Error: /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd(70): (vcom-1136) Unknown identifier "to_string".
+# ** Error: /home/ajgarcia/2-Pipelined-RISC-V-Processors/cpre3810-toolflow/proj/test/tb_forwarding_unit.vhd(70): Type error resolving infix expression "&" as type std.STANDARD.STRING.

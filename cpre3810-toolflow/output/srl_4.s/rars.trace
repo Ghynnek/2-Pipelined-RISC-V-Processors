@@ -1,0 +1,39 @@
+[inst #1] addi x2,x0,1
+Register Write to Reg: 0x02 Val: 0x00000001
+[inst #2] addi x3,x0,4
+Register Write to Reg: 0x03 Val: 0x00000004
+[inst #3] addi x4,x0,16
+Register Write to Reg: 0x04 Val: 0x00000010
+[inst #4] addi x5,x0,31
+Register Write to Reg: 0x05 Val: 0x0000001F
+[inst #5] addi x6,x0,-1
+Register Write to Reg: 0x06 Val: 0xFFFFFFFF
+[inst #6] srl x7,x6,x2
+Register Write to Reg: 0x07 Val: 0x7FFFFFFF
+[inst #7] srl x8,x6,x4
+Register Write to Reg: 0x08 Val: 0x0000FFFF
+[inst #8] srl x9,x6,x5
+Register Write to Reg: 0x09 Val: 0x00000001
+[inst #9] lui x10,524288
+Register Write to Reg: 0x0A Val: 0x80000000
+[inst #10] addi x10,x10,-1
+Register Write to Reg: 0x0A Val: 0x7FFFFFFF
+[inst #11] srl x11,x10,x2
+Register Write to Reg: 0x0B Val: 0x3FFFFFFF
+[inst #12] addi x12,x0,0
+Register Write to Reg: 0x0C Val: 0x00000000
+[inst #13] srl x13,x12,x3
+Register Write to Reg: 0x0D Val: 0x00000000
+[inst #14] addi x14,x0,2047
+Register Write to Reg: 0x0E Val: 0x000007FF
+[inst #15] srl x15,x14,x3
+Register Write to Reg: 0x0F Val: 0x0000007F
+[inst #16] lui x16,699051
+Register Write to Reg: 0x10 Val: 0xAAAAB000
+[inst #17] addi x16,x16,-1366
+Register Write to Reg: 0x10 Val: 0xAAAAAAAA
+[inst #18] srl x17,x16,x2
+Register Write to Reg: 0x11 Val: 0x55555555
+[inst #19] wfi 
+
+Program terminated by dropping off the bottom.

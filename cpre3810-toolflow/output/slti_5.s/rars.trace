@@ -1,0 +1,63 @@
+[inst #1] lui x2,1
+Register Write to Reg: 0x02 Val: 0x00001000
+[inst #2] addi x2,x2,5
+Register Write to Reg: 0x02 Val: 0x00001005
+[inst #3] slti x10,x2,10
+Register Write to Reg: 0x0A Val: 0x00000000
+[inst #4] lui x2,1
+Register Write to Reg: 0x02 Val: 0x00001000
+[inst #5] slti x11,x2,1
+Register Write to Reg: 0x0B Val: 0x00000000
+[inst #6] lui x2,16
+Register Write to Reg: 0x02 Val: 0x00010000
+[inst #7] slti x12,x2,1
+Register Write to Reg: 0x0C Val: 0x00000000
+[inst #8] lui x2,4096
+Register Write to Reg: 0x02 Val: 0x01000000
+[inst #9] slti x13,x2,2047
+Register Write to Reg: 0x0D Val: 0x00000000
+[inst #10] lui x2,74565
+Register Write to Reg: 0x02 Val: 0x12345000
+[inst #11] addi x2,x2,1656
+Register Write to Reg: 0x02 Val: 0x12345678
+[inst #12] slti x14,x2,2047
+Register Write to Reg: 0x0E Val: 0x00000000
+[inst #13] lui x2,74565
+Register Write to Reg: 0x02 Val: 0x12345000
+[inst #14] addi x2,x2,1656
+Register Write to Reg: 0x02 Val: 0x12345678
+[inst #15] slti x15,x2,-1
+Register Write to Reg: 0x0F Val: 0x00000000
+[inst #16] lui x2,974010
+Register Write to Reg: 0x02 Val: 0xEDCBA000
+[inst #17] slti x16,x2,0
+Register Write to Reg: 0x10 Val: 0x00000001
+[inst #18] lui x2,974010
+Register Write to Reg: 0x02 Val: 0xEDCBA000
+[inst #19] slti x17,x2,-2048
+Register Write to Reg: 0x11 Val: 0x00000001
+[inst #20] lui x2,1048575
+Register Write to Reg: 0x02 Val: 0xFFFFF000
+[inst #21] slti x18,x2,-1
+Register Write to Reg: 0x12 Val: 0x00000001
+[inst #22] lui x2,1048575
+Register Write to Reg: 0x02 Val: 0xFFFFF000
+[inst #23] addi x2,x2,-1
+Register Write to Reg: 0x02 Val: 0xFFFFEFFF
+[inst #24] slti x19,x2,-2048
+Register Write to Reg: 0x13 Val: 0x00000001
+[inst #25] lui x2,524288
+Register Write to Reg: 0x02 Val: 0x80000000
+[inst #26] addi x2,x2,-1
+Register Write to Reg: 0x02 Val: 0x7FFFFFFF
+[inst #27] slti x20,x2,-1
+Register Write to Reg: 0x14 Val: 0x00000000
+[inst #28] lui x2,524288
+Register Write to Reg: 0x02 Val: 0x80000000
+[inst #29] addi x2,x2,-2048
+Register Write to Reg: 0x02 Val: 0x7FFFF800
+[inst #30] slti x21,x2,2047
+Register Write to Reg: 0x15 Val: 0x00000000
+[inst #31] wfi 
+
+Program terminated by dropping off the bottom.
